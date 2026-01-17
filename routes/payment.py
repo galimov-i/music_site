@@ -1,9 +1,8 @@
 """Payment integration handlers."""
 
-import os
 import time
-import json
-from flask import Blueprint, request, jsonify, current_app, redirect, url_for
+from markupsafe import escape
+from flask import Blueprint, request, jsonify, current_app, url_for
 from models.course_purchase import CoursePurchase
 
 payment_bp = Blueprint('payment', __name__)
@@ -165,14 +164,18 @@ def send_purchase_confirmation(purchase):
     from flask_mail import Mail, Message
     mail = Mail(current_app)
     
+    # Escape user input to prevent XSS
+    safe_name = escape(purchase.name)
+    safe_amount = escape(str(purchase.amount))
+    
     msg = Message(
         subject='Спасибо за покупку курса!',
         recipients=[purchase.email],
         html=f'''
         <h2>Спасибо за покупку курса "Создай и Опубликуй Свою Музыку"!</h2>
-        <p>Здравствуйте, {purchase.name}!</p>
+        <p>Здравствуйте, {safe_name}!</p>
         <p>Ваш платеж успешно обработан.</p>
-        <p><strong>Сумма:</strong> {purchase.amount}₽</p>
+        <p><strong>Сумма:</strong> {safe_amount}₽</p>
         <p>Доступ к курсу будет отправлен вам в течение 24 часов.</p>
         <p>С уважением,<br>Ильшат Галимов</p>
         '''

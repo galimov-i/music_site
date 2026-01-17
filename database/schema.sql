@@ -23,8 +23,8 @@ CREATE TABLE IF NOT EXISTS course_purchases (
     phone TEXT,
     amount REAL NOT NULL,
     payment_id TEXT UNIQUE,
-    payment_system TEXT CHECK(payment_system IN ('stripe', 'yookassa')),
-    status TEXT DEFAULT 'pending' CHECK(status IN ('pending', 'completed', 'refunded')),
+    payment_system TEXT CHECK(payment_system IN ('stripe', 'yookassa', 'demo')),
+    status TEXT DEFAULT 'pending' CHECK(status IN ('pending', 'completed', 'refunded', 'cancelled')),
     access_granted INTEGER DEFAULT 0,
     created_at INTEGER NOT NULL,
     updated_at INTEGER NOT NULL

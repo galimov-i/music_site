@@ -2,6 +2,9 @@
 
 import re
 import time
+from functools import wraps
+from collections import defaultdict
+from markupsafe import escape
 from flask import Blueprint, request, jsonify, current_app
 from flask_mail import Message
 from models.song_order import SongOrder
@@ -9,6 +12,39 @@ from models.contact import Contact
 from database.db import get_db_connection
 
 forms_bp = Blueprint('forms', __name__)
+
+# Simple in-memory rate limiter
+_rate_limit_data = defaultdict(list)
+RATE_LIMIT_REQUESTS = 5  # Max requests
+RATE_LIMIT_WINDOW = 60  # Per 60 seconds
+
+
+def rate_limit(f):
+    """Simple rate limiting decorator."""
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        # Get client IP
+        client_ip = request.remote_addr or 'unknown'
+        current_time = time.time()
+        
+        # Clean old entries
+        _rate_limit_data[client_ip] = [
+            t for t in _rate_limit_data[client_ip] 
+            if current_time - t < RATE_LIMIT_WINDOW
+        ]
+        
+        # Check rate limit
+        if len(_rate_limit_data[client_ip]) >= RATE_LIMIT_REQUESTS:
+            return jsonify({
+                'success': False,
+                'errors': ['Слишком много запросов. Пожалуйста, подождите минуту.']
+            }), 429
+        
+        # Add current request
+        _rate_limit_data[client_ip].append(current_time)
+        
+        return f(*args, **kwargs)
+    return decorated_function
 
 
 def validate_email(email):
@@ -28,6 +64,7 @@ def validate_phone(phone):
 
 
 @forms_bp.route('/submit-song-order', methods=['POST'])
+@rate_limit
 def submit_song_order():
     """Handle song commission order submission."""
     try:
@@ -95,6 +132,7 @@ def submit_song_order():
 
 
 @forms_bp.route('/submit-contact', methods=['POST'])
+@rate_limit
 def submit_contact():
     """Handle contact form submission."""
     try:
@@ -147,6 +185,7 @@ def submit_contact():
 
 
 @forms_bp.route('/subscribe-newsletter', methods=['POST'])
+@rate_limit
 def subscribe_newsletter():
     """Handle newsletter subscription."""
     try:
@@ -188,18 +227,27 @@ def send_song_order_notification(order):
     from flask_mail import Mail, Message
     mail = Mail(current_app)
     
+    # Escape user input to prevent XSS in email clients
+    safe_name = escape(order.name)
+    safe_email = escape(order.email)
+    safe_phone = escape(order.phone or 'Не указан')
+    safe_song_type = escape(order.song_type)
+    safe_description = escape(order.description)
+    safe_budget = escape(order.budget or 'Не указан')
+    safe_deadline = escape(order.deadline or 'Не указан')
+    
     msg = Message(
-        subject=f'Новый заказ песни от {order.name}',
+        subject=f'Новый заказ песни от {safe_name}',
         recipients=[current_app.config['ADMIN_EMAIL']],
         html=f'''
         <h2>Новый заказ песни</h2>
-        <p><strong>Имя:</strong> {order.name}</p>
-        <p><strong>Email:</strong> {order.email}</p>
-        <p><strong>Телефон:</strong> {order.phone or 'Не указан'}</p>
-        <p><strong>Тип песни:</strong> {order.song_type}</p>
-        <p><strong>Описание:</strong> {order.description}</p>
-        <p><strong>Бюджет:</strong> {order.budget or 'Не указан'}</p>
-        <p><strong>Срок:</strong> {order.deadline or 'Не указан'}</p>
+        <p><strong>Имя:</strong> {safe_name}</p>
+        <p><strong>Email:</strong> {safe_email}</p>
+        <p><strong>Телефон:</strong> {safe_phone}</p>
+        <p><strong>Тип песни:</strong> {safe_song_type}</p>
+        <p><strong>Описание:</strong> {safe_description}</p>
+        <p><strong>Бюджет:</strong> {safe_budget}</p>
+        <p><strong>Срок:</strong> {safe_deadline}</p>
         '''
     )
     mail.send(msg)
@@ -210,15 +258,20 @@ def send_contact_notification(contact):
     from flask_mail import Mail, Message
     mail = Mail(current_app)
     
+    # Escape user input to prevent XSS in email clients
+    safe_name = escape(contact.name)
+    safe_email = escape(contact.email)
+    safe_message = escape(contact.message)
+    
     msg = Message(
-        subject=f'Новое сообщение от {contact.name}',
+        subject=f'Новое сообщение от {safe_name}',
         recipients=[current_app.config['ADMIN_EMAIL']],
         html=f'''
         <h2>Новое сообщение</h2>
-        <p><strong>Имя:</strong> {contact.name}</p>
-        <p><strong>Email:</strong> {contact.email}</p>
+        <p><strong>Имя:</strong> {safe_name}</p>
+        <p><strong>Email:</strong> {safe_email}</p>
         <p><strong>Сообщение:</strong></p>
-        <p>{contact.message}</p>
+        <p>{safe_message}</p>
         '''
     )
     mail.send(msg)

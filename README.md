@@ -1,111 +1,104 @@
 # Ilshat Galimov Music Site
 
-A modern, high-converting one-page landing website for music artist Ilshat Galimov.
+A modern, high-converting one-page landing website for music artist Ilshat Galimov built with Flask.
 
 ![Python](https://img.shields.io/badge/Python-3.10+-blue.svg)
 ![Flask](https://img.shields.io/badge/Flask-3.0+-green.svg)
+![SQLite](https://img.shields.io/badge/SQLite-3-lightgrey.svg)
 ![License](https://img.shields.io/badge/License-MIT-yellow.svg)
 
-## Overview
+[🇷🇺 Русская версия](README_RUS.md)
 
-This is a professional music artist landing page featuring:
+## Features
 
-- 🎵 Music streaming platform links (VK Music, Yandex Music)
-- 💰 Donation integration (Boosty, DonationAlerts, VK Donut, crypto)
-- 📝 Song commission order form
-- 🎓 Music production course sales with payment integration
-- 📱 Mobile-first responsive design
-- ✨ Modern animations and smooth interactions
-- 📧 Email notifications for form submissions
+- 🎵 **Music Platform Integration** - VK Music & Yandex Music links
+- 💰 **Donation System** - Boosty, DonationAlerts, VK Donut, crypto wallets
+- 📝 **Song Commission Form** - Custom order form with pricing tiers
+- 🎓 **Course Sales** - Music production course with YooKassa payment
+- 📱 **Responsive Design** - Mobile-first approach
+- ✨ **Modern Animations** - Smooth scroll and fade-in effects
+- 📧 **Email Notifications** - Flask-Mail integration
+- 🔒 **Security** - Rate limiting, XSS protection, security headers
 
 ## Tech Stack
 
-- **Backend**: Flask 3.0+ (Python)
-- **Database**: SQLite
-- **Frontend**: HTML5, CSS3, Vanilla JavaScript
-- **Payment**: YooKassa (Russian payment system)
-- **Email**: Flask-Mail
+| Component | Technology |
+|-----------|------------|
+| Backend | Flask 3.0+ (Python) |
+| Database | SQLite |
+| Frontend | HTML5, CSS3, Vanilla JavaScript |
+| Payment | YooKassa (Russian market) |
+| Email | Flask-Mail |
+| Fonts | Google Fonts (Montserrat, Open Sans) |
 
 ## Quick Start
 
 ### Prerequisites
 
-- Python 3.10 or higher
+- Python 3.10+
 - pip (Python package manager)
 
 ### Installation
 
-1. **Clone the repository**
-   ```bash
-   git clone <repository-url>
-   cd ilshat-galimov-landing
-   ```
+```bash
+# Clone the repository
+git clone <repository-url>
+cd ilshat-galimov-landing
 
-2. **Create virtual environment**
-   ```bash
-   python -m venv venv
-   source venv/bin/activate  # On Windows: venv\Scripts\activate
-   ```
+# Create virtual environment
+python -m venv venv
+source venv/bin/activate  # Windows: venv\Scripts\activate
 
-3. **Install dependencies**
-   ```bash
-   pip install -r requirements.txt
-   ```
+# Install dependencies
+pip install -r requirements.txt
 
-4. **Configure environment variables**
-   ```bash
-   cp .env.example .env
-   # Edit .env with your actual values
-   ```
+# Copy environment file
+cp .env.example .env
+# Edit .env with your values
 
-5. **Initialize the database**
-   ```bash
-   python -c "from app import app; from database.db import init_db; app.app_context().push(); init_db()"
-   ```
+# Run the application
+python app.py
+```
 
-6. **Run the application**
-   ```bash
-   python app.py
-   ```
-
-7. **Open in browser**
-   ```
-   http://localhost:5000
-   ```
+Open http://localhost:5000 in your browser.
 
 ## Project Structure
 
 ```
-ilshat-galimov-landing/
-├── app.py                  # Main Flask application
+├── app.py                  # Flask application factory
 ├── config.py               # Configuration settings
 ├── requirements.txt        # Python dependencies
-├── .env.example            # Environment variables template
+├── .env.example            # Environment template
 ├── database/
-│   ├── db.py               # Database connection management
+│   ├── __init__.py
+│   ├── db.py               # Database connection
 │   └── schema.sql          # SQL schema
 ├── routes/
-│   ├── main.py             # Main page routes
-│   ├── forms.py            # Form submission handlers
+│   ├── __init__.py
+│   ├── main.py             # Main routes
+│   ├── forms.py            # Form handlers (with rate limiting)
 │   └── payment.py          # Payment integration
 ├── models/
-│   ├── song_order.py       # Song commission orders
-│   ├── course_purchase.py  # Course purchases
-│   └── contact.py          # Contact form submissions
+│   ├── __init__.py
+│   ├── song_order.py       # Song order model
+│   ├── course_purchase.py  # Course purchase model
+│   └── contact.py          # Contact model
 ├── static/
 │   ├── css/
-│   │   ├── style.css       # Main styles
+│   │   ├── style.css       # Main styles (~1500 lines)
 │   │   ├── animations.css  # Animation styles
 │   │   └── responsive.css  # Media queries
 │   ├── js/
-│   │   ├── main.js         # Main JavaScript
+│   │   ├── main.js         # Core JavaScript
 │   │   ├── animations.js   # Scroll animations
-│   │   ├── forms.js        # Form handling
-│   │   └── payment.js      # Payment integration
-│   └── images/             # Images and icons
+│   │   ├── forms.js        # Form validation
+│   │   └── payment.js      # Payment handling
+│   └── images/
+│       ├── favicon.svg
+│       └── og-image.svg
 └── templates/
     ├── base.html           # Base template
-    ├── index.html          # Main landing page
+    ├── index.html          # Landing page
     └── email/              # Email templates
 ```
 
@@ -113,98 +106,95 @@ ilshat-galimov-landing/
 
 ### Environment Variables
 
-| Variable | Description | Example |
-|----------|-------------|---------|
-| `SECRET_KEY` | Flask secret key | `your-random-secret-key` |
-| `YOOKASSA_SHOP_ID` | YooKassa shop ID | `123456` |
-| `YOOKASSA_SECRET_KEY` | YooKassa secret key | `test_secret_key` |
-| `MAIL_SERVER` | SMTP server | `smtp.yandex.ru` |
-| `MAIL_PORT` | SMTP port | `587` |
-| `MAIL_USERNAME` | Email address | `your@email.com` |
-| `MAIL_PASSWORD` | Email password | `app-password` |
-| `ADMIN_EMAIL` | Admin notification email | `admin@example.com` |
+| Variable | Required | Description |
+|----------|----------|-------------|
+| `SECRET_KEY` | Yes | Flask secret key (generate with `python -c "import secrets; print(secrets.token_hex(32))"`) |
+| `YOOKASSA_SHOP_ID` | No | YooKassa shop ID |
+| `YOOKASSA_SECRET_KEY` | No | YooKassa secret key |
+| `MAIL_SERVER` | No | SMTP server (default: smtp.yandex.ru) |
+| `MAIL_PORT` | No | SMTP port (default: 587) |
+| `MAIL_USERNAME` | No | Email address |
+| `MAIL_PASSWORD` | No | Email app password |
+| `ADMIN_EMAIL` | No | Admin notification email |
 
-### Payment Setup (YooKassa)
+### YooKassa Payment Setup
 
 1. Register at [yookassa.ru](https://yookassa.ru/)
-2. Create a shop and get your Shop ID and Secret Key
-3. Add credentials to `.env` file
-4. Configure webhook URL: `https://your-domain.com/webhook/yookassa`
-5. Test in sandbox mode first
-
-## Landing Page Sections
-
-1. **Hero** - Full-screen intro with artist name and CTAs
-2. **About** - Artist biography and achievements
-3. **Music** - VK Music and Yandex Music links with latest releases
-4. **Course** - Music production course with pricing and enrollment
-5. **Song Order** - Custom song commission form with pricing tiers
-6. **Donation** - Multiple donation platform links
-7. **Contact** - Contact form and social links
-8. **Footer** - Navigation, legal links, and social icons
+2. Create a shop and get credentials
+3. Add to `.env`:
+   ```
+   YOOKASSA_SHOP_ID=your_shop_id
+   YOOKASSA_SECRET_KEY=your_secret_key
+   ```
+4. Configure webhook: `https://your-domain.com/webhook/yookassa`
+5. Test in sandbox mode before going live
 
 ## API Endpoints
 
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| GET | `/` | Main landing page |
-| POST | `/submit-song-order` | Song commission order |
-| POST | `/submit-contact` | Contact form |
-| POST | `/subscribe-newsletter` | Newsletter subscription |
-| POST | `/create-payment` | Create course payment |
-| GET | `/payment-success` | Payment success page |
-| GET | `/payment-failure` | Payment failure page |
-| POST | `/webhook/yookassa` | YooKassa webhook handler |
+| Method | Endpoint | Description | Rate Limited |
+|--------|----------|-------------|--------------|
+| GET | `/` | Landing page | No |
+| POST | `/submit-song-order` | Song order | Yes (5/min) |
+| POST | `/submit-contact` | Contact form | Yes (5/min) |
+| POST | `/subscribe-newsletter` | Newsletter | Yes (5/min) |
+| POST | `/create-payment` | Course payment | No |
+| GET | `/payment-success` | Success page | No |
+| GET | `/payment-failure` | Failure page | No |
+| POST | `/webhook/yookassa` | Payment webhook | No |
 
 ## Database Schema
 
 ### Tables
 
-- `song_orders` - Song commission requests
-- `course_purchases` - Course purchase records
-- `contact_submissions` - Contact form messages
-- `newsletter_subscribers` - Email subscribers
+| Table | Description |
+|-------|-------------|
+| `song_orders` | Song commission requests |
+| `course_purchases` | Course purchase records |
+| `contact_submissions` | Contact form messages |
+| `newsletter_subscribers` | Email subscribers |
+
+### Initialize Database
+
+```bash
+# Using Flask CLI
+flask init-db
+
+# Or programmatically
+python -c "from app import app; from database.db import init_db; app.app_context().push(); init_db()"
+```
 
 ## Customization
 
-### Changing Colors
+### Color Scheme
 
-Edit the CSS variables in `static/css/style.css`:
+Edit CSS variables in `static/css/style.css`:
 
 ```css
 :root {
     --color-primary: #0077FF;      /* VK Blue */
     --color-secondary: #FFCC00;    /* Yandex Yellow */
-    --color-accent: #FF3347;       /* Action Red */
-    /* ... */
+    --color-accent: #FF3347;       /* CTA Red */
+    --color-bg-dark: #0A0A0F;      /* Background */
+    --color-text-primary: #FFFFFF; /* Text */
 }
 ```
 
-### Updating Content
+### Content
 
-Edit the Russian content in `templates/index.html`. Key sections:
-- Hero tagline and CTA buttons
-- About biography text
-- Course details and pricing
-- Song order pricing tiers
+Edit Russian content in `templates/index.html`:
+- Hero section (lines 3-30)
+- About section (lines 35-75)
+- Course details (lines 100-180)
+- Pricing tiers (lines 220-280)
 
 ### Adding Images
 
-Replace placeholder images in `static/images/`:
-- `hero/` - Hero background images
+Replace placeholders in `static/images/`:
+- `hero/` - Hero background
 - `about/` - Artist photos
-- `course/` - Course preview images
+- `course/` - Course previews
 
 ## Deployment
-
-### PythonAnywhere
-
-1. Create a PythonAnywhere account
-2. Upload project files
-3. Create virtual environment and install dependencies
-4. Configure WSGI file
-5. Set environment variables
-6. Enable HTTPS
 
 ### Docker
 
@@ -213,7 +203,7 @@ FROM python:3.11-slim
 
 WORKDIR /app
 COPY requirements.txt .
-RUN pip install -r requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 EXPOSE 5000
@@ -221,51 +211,142 @@ EXPOSE 5000
 CMD ["gunicorn", "-w", "4", "-b", "0.0.0.0:5000", "app:app"]
 ```
 
+```bash
+docker build -t ilshat-music .
+docker run -p 5000:5000 --env-file .env ilshat-music
+```
+
 ### Gunicorn (Production)
 
 ```bash
+pip install gunicorn
 gunicorn -w 4 -b 0.0.0.0:5000 app:app
 ```
 
-## Browser Support
+### PythonAnywhere
 
-- Chrome 90+
-- Firefox 88+
-- Safari 14+
-- Edge 90+
-- Yandex Browser (latest)
+1. Upload files via Web interface or Git
+2. Create virtual environment
+3. Install dependencies: `pip install -r requirements.txt`
+4. Configure WSGI file to import `app` from `app.py`
+5. Set environment variables in Web tab
+6. Reload web app
+
+### Nginx Reverse Proxy
+
+```nginx
+server {
+    listen 80;
+    server_name ilshatgalimov.ru;
+
+    location / {
+        proxy_pass http://127.0.0.1:5000;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    }
+
+    location /static {
+        alias /path/to/app/static;
+        expires 30d;
+    }
+}
+```
+
+## Security Features
+
+- **Rate Limiting** - 5 requests per minute per IP on forms
+- **XSS Protection** - All user input escaped in emails
+- **Security Headers** - X-Content-Type-Options, X-Frame-Options, etc.
+- **SQL Injection Prevention** - Parameterized queries
+- **CSRF Ready** - Can add Flask-WTF for forms
 
 ## Performance
 
-- Lighthouse score: 90+ (target)
-- First Contentful Paint: < 1.5s
-- Fully Interactive: < 3s
+| Metric | Target |
+|--------|--------|
+| Lighthouse Score | 90+ |
+| First Contentful Paint | < 1.5s |
+| Time to Interactive | < 3s |
+| Total Bundle Size | < 100KB (CSS+JS) |
 
-## Security
+### Optimization Tips
 
-- CSRF protection via Flask
-- Form validation (client & server)
-- SQL injection prevention (parameterized queries)
-- XSS prevention (Jinja2 auto-escaping)
+1. Enable gzip compression in Nginx
+2. Use CDN for static assets
+3. Add `loading="lazy"` to images below fold
+4. Minify CSS/JS in production
 
-## Contributing
+## Browser Support
 
-1. Fork the repository
-2. Create a feature branch
-3. Commit your changes
-4. Push to the branch
-5. Open a Pull Request
+| Browser | Version |
+|---------|---------|
+| Chrome | 90+ |
+| Firefox | 88+ |
+| Safari | 14+ |
+| Edge | 90+ |
+| Yandex Browser | Latest |
+
+## Troubleshooting
+
+### Database Issues
+
+```bash
+# Reset database
+rm music_site.db
+python -c "from app import app; from database.db import init_db; app.app_context().push(); init_db()"
+```
+
+### Email Not Sending
+
+1. Check MAIL_* environment variables
+2. For Yandex Mail, create app password
+3. Check spam folder
+4. Verify SMTP port (587 for TLS)
+
+### Payment Not Working
+
+1. Verify YooKassa credentials
+2. Check webhook URL is accessible
+3. Test in sandbox mode first
+4. Check Flask logs for errors
+
+## Development
+
+### Running Tests
+
+```bash
+python -m pytest tests/
+```
+
+### Code Style
+
+```bash
+# Install linters
+pip install flake8 black
+
+# Check code
+flake8 .
+black --check .
+```
+
+### Adding New Features
+
+1. Create feature branch
+2. Add tests if applicable
+3. Update documentation
+4. Submit pull request
 
 ## License
 
-This project is licensed under the MIT License.
+MIT License - see [LICENSE](LICENSE) for details.
 
-## Support
+## Contact
 
-For questions or support:
-- Telegram: [@ilshatgalimov](https://t.me/ilshator)
-- Email: ilshat.music@example.com
+- **Telegram**: [@ilshatgalimov](https://t.me/ilshator)
+- **VK**: [vk.com/ilshatgalimov](https://vk.com/ilshatgalimov)
+- **Email**: ilshat.music@example.com
 
 ---
 
-Made with ❤️ for Ilshat Galimov
+Built with ❤️ for Ilshat Galimov | © 2026

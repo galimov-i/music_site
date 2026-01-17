@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0A0A0F"/>
+      <stop offset="100%" style="stop-color:#12121A"/>
+    </linearGradient>
+    <linearGradient id="textGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#FFFFFF"/>
+      <stop offset="50%" style="stop-color:#0077FF"/>
+      <stop offset="100%" style="stop-color:#FFCC00"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bgGrad)"/>
+  <circle cx="200" cy="315" r="300" fill="#0077FF" opacity="0.1"/>
+  <circle cx="1000" cy="315" r="250" fill="#FFCC00" opacity="0.1"/>
+  <text x="600" y="280" text-anchor="middle" font-family="Montserrat, sans-serif" font-size="80" font-weight="800" fill="url(#textGrad)">Ilshat Galimov</text>
+  <text x="600" y="360" text-anchor="middle" font-family="Open Sans, sans-serif" font-size="32" fill="#B3B3C2">Musician &#8226; Composer &#8226; Producer</text>
+  <text x="600" y="450" text-anchor="middle" font-family="Open Sans, sans-serif" font-size="24" fill="#6B6B80">Creating music that tells stories</text>
+</svg>

@@ -93,6 +93,182 @@
             margin-bottom: 20px;
         }
 
+        .audio-bars {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+            width: 240px;
+            height: 240px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .audio-bar {
+            width: 3px;
+            height: 20px;
+            background: linear-gradient(180deg, rgba(102, 126, 234, 0.8) 0%, rgba(118, 75, 162, 0.8) 100%);
+            border-radius: 2px;
+            position: absolute;
+            transform-origin: center;
+        }
+
+        .audio-bar:nth-child(1) {
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%) rotate(0deg);
+            animation: barPulse1 1.2s ease-in-out infinite;
+        }
+
+        .audio-bar:nth-child(2) {
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%) rotate(90deg);
+            animation: barPulse2 1.4s ease-in-out infinite 0.1s;
+        }
+
+        .audio-bar:nth-child(3) {
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%) rotate(180deg);
+            animation: barPulse3 1.3s ease-in-out infinite 0.2s;
+        }
+
+        .audio-bar:nth-child(4) {
+            top: 50%;
+            left: 20px;
+            transform: translateY(-50%) rotate(270deg);
+            animation: barPulse4 1.5s ease-in-out infinite 0.3s;
+        }
+
+        .audio-bar:nth-child(5) {
+            top: 40px;
+            right: 50px;
+            transform: rotate(45deg);
+            animation: barPulse1 1.35s ease-in-out infinite 0.4s;
+        }
+
+        .audio-bar:nth-child(6) {
+            bottom: 40px;
+            right: 50px;
+            transform: rotate(135deg);
+            animation: barPulse2 1.25s ease-in-out infinite 0.5s;
+        }
+
+        .audio-bar:nth-child(7) {
+            bottom: 40px;
+            left: 50px;
+            transform: rotate(225deg);
+            animation: barPulse3 1.4s ease-in-out infinite 0.6s;
+        }
+
+        .audio-bar:nth-child(8) {
+            top: 40px;
+            left: 50px;
+            transform: rotate(315deg);
+            animation: barPulse4 1.3s ease-in-out infinite 0.7s;
+        }
+
+        @keyframes barPulse1 {
+            0%, 100% {
+                height: 15px;
+                opacity: 0.6;
+            }
+            50% {
+                height: 35px;
+                opacity: 1;
+            }
+        }
+
+        @keyframes barPulse2 {
+            0%, 100% {
+                height: 20px;
+                opacity: 0.5;
+            }
+            50% {
+                height: 40px;
+                opacity: 1;
+            }
+        }
+
+        @keyframes barPulse3 {
+            0%, 100% {
+                height: 18px;
+                opacity: 0.7;
+            }
+            50% {
+                height: 32px;
+                opacity: 1;
+            }
+        }
+
+        @keyframes barPulse4 {
+            0%, 100% {
+                height: 22px;
+                opacity: 0.6;
+            }
+            50% {
+                height: 38px;
+                opacity: 1;
+            }
+        }
+
+        .image-wrapper::before,
+        .image-wrapper::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 2px solid rgba(102, 126, 234, 0.3);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .image-wrapper::before {
+            animation: soundWave1 3s ease-in-out infinite;
+        }
+
+        .image-wrapper::after {
+            animation: soundWave2 3s ease-in-out infinite 0.5s;
+        }
+
+        @keyframes soundWave1 {
+            0% {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 0.6;
+            }
+            50% {
+                transform: translate(-50%, -50%) scale(1.15);
+                opacity: 0.3;
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(1.3);
+                opacity: 0;
+            }
+        }
+
+        @keyframes soundWave2 {
+            0% {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 0.4;
+            }
+            50% {
+                transform: translate(-50%, -50%) scale(1.2);
+                opacity: 0.2;
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(1.35);
+                opacity: 0;
+            }
+        }
 
         .artist-image {
             width: 200px;
@@ -104,11 +280,84 @@
             transition: transform 0.3s ease;
             position: relative;
             z-index: 1;
-            will-change: transform;
+            will-change: transform, filter;
+            animation: coolPulse 3s ease-in-out infinite;
+            filter: brightness(1) saturate(1);
+        }
+
+        .artist-image::before {
+            content: '';
+            position: absolute;
+            top: -8px;
+            left: -8px;
+            right: -8px;
+            bottom: -8px;
+            border-radius: 50%;
+            background: conic-gradient(
+                from 0deg,
+                rgba(102, 126, 234, 0.8),
+                rgba(118, 75, 162, 0.8),
+                rgba(102, 126, 234, 0.8),
+                rgba(118, 75, 162, 0.8),
+                rgba(102, 126, 234, 0.8)
+            );
+            z-index: -1;
+            animation: rotateGradient 4s linear infinite;
+            opacity: 0.6;
+        }
+
+        @keyframes rotateGradient {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes coolPulse {
+            0%, 100% {
+                transform: scale(1) rotate(0deg);
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3),
+                            0 0 20px rgba(102, 126, 234, 0.3);
+                filter: brightness(1) saturate(1);
+            }
+            25% {
+                transform: scale(1.03) rotate(1deg);
+                box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3),
+                            0 0 30px rgba(102, 126, 234, 0.5);
+                filter: brightness(1.1) saturate(1.1);
+            }
+            50% {
+                transform: scale(1.05) rotate(0deg);
+                box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3),
+                            0 0 40px rgba(118, 75, 162, 0.6);
+                filter: brightness(1.15) saturate(1.2);
+            }
+            75% {
+                transform: scale(1.03) rotate(-1deg);
+                box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3),
+                            0 0 30px rgba(102, 126, 234, 0.5);
+                filter: brightness(1.1) saturate(1.1);
+            }
         }
 
         .artist-image:hover {
-            transform: scale(1.05);
+            transform: scale(1.08) rotate(0deg);
+            animation: none;
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.4),
+                        0 0 50px rgba(102, 126, 234, 0.7);
+            filter: brightness(1.2) saturate(1.3);
+        }
+
+        .artist-image:hover::before {
+            opacity: 0.8;
+            animation-duration: 2s;
+        }
+
+        .image-wrapper:hover::before,
+        .image-wrapper:hover::after {
+            animation-play-state: paused;
         }
 
         .artist-name {
@@ -259,15 +508,200 @@
             transition: all 0.3s ease;
         }
 
+        .donate-image-wrapper {
+            position: relative;
+            display: inline-block;
+            margin: 0 auto 20px;
+        }
+
+        .audio-bars-donate {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 160px;
+            height: 160px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .audio-bar-donate {
+            width: 2.5px;
+            height: 15px;
+            background: linear-gradient(180deg, rgba(255, 215, 0, 0.9) 0%, rgba(255, 193, 7, 0.9) 100%);
+            border-radius: 2px;
+            position: absolute;
+            transform-origin: center;
+        }
+
+        .audio-bar-donate:nth-child(1) {
+            top: 15px;
+            left: 50%;
+            transform: translateX(-50%) rotate(0deg);
+            animation: barPulseDonate1 1.3s ease-in-out infinite;
+        }
+
+        .audio-bar-donate:nth-child(2) {
+            top: 50%;
+            right: 15px;
+            transform: translateY(-50%) rotate(90deg);
+            animation: barPulseDonate2 1.5s ease-in-out infinite 0.15s;
+        }
+
+        .audio-bar-donate:nth-child(3) {
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%) rotate(180deg);
+            animation: barPulseDonate3 1.4s ease-in-out infinite 0.3s;
+        }
+
+        .audio-bar-donate:nth-child(4) {
+            top: 50%;
+            left: 15px;
+            transform: translateY(-50%) rotate(270deg);
+            animation: barPulseDonate1 1.35s ease-in-out infinite 0.45s;
+        }
+
+        .audio-bar-donate:nth-child(5) {
+            top: 30px;
+            right: 35px;
+            transform: rotate(45deg);
+            animation: barPulseDonate2 1.4s ease-in-out infinite 0.6s;
+        }
+
+        .audio-bar-donate:nth-child(6) {
+            bottom: 30px;
+            left: 35px;
+            transform: rotate(225deg);
+            animation: barPulseDonate3 1.3s ease-in-out infinite 0.75s;
+        }
+
+        @keyframes barPulseDonate1 {
+            0%, 100% {
+                height: 12px;
+                opacity: 0.6;
+            }
+            50% {
+                height: 28px;
+                opacity: 1;
+            }
+        }
+
+        @keyframes barPulseDonate2 {
+            0%, 100% {
+                height: 15px;
+                opacity: 0.5;
+            }
+            50% {
+                height: 32px;
+                opacity: 1;
+            }
+        }
+
+        @keyframes barPulseDonate3 {
+            0%, 100% {
+                height: 10px;
+                opacity: 0.7;
+            }
+            50% {
+                height: 26px;
+                opacity: 1;
+            }
+        }
+
         .donate-author-image {
             width: 120px;
             height: 120px;
             border-radius: 50%;
             object-fit: cover;
-            margin: 0 auto 20px;
             border: 4px solid rgba(255, 193, 7, 0.5);
             box-shadow: 0 6px 20px rgba(255, 193, 7, 0.3);
             display: block;
+            position: relative;
+            z-index: 1;
+            animation: gentleSway 4s ease-in-out infinite;
+            transition: transform 0.3s ease;
+        }
+
+        .donate-author-image::before,
+        .donate-author-image::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 2px solid rgba(255, 193, 7, 0.4);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .donate-author-image::before {
+            animation: soundWaveDonate1 4s ease-in-out infinite;
+        }
+
+        .donate-author-image::after {
+            animation: soundWaveDonate2 4s ease-in-out infinite 0.6s;
+        }
+
+        @keyframes soundWaveDonate1 {
+            0% {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 0.5;
+            }
+            50% {
+                transform: translate(-50%, -50%) scale(1.2);
+                opacity: 0.25;
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(1.4);
+                opacity: 0;
+            }
+        }
+
+        @keyframes soundWaveDonate2 {
+            0% {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 0.4;
+            }
+            50% {
+                transform: translate(-50%, -50%) scale(1.25);
+                opacity: 0.2;
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(1.45);
+                opacity: 0;
+            }
+        }
+
+        @keyframes gentleSway {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+                box-shadow: 0 6px 20px rgba(255, 193, 7, 0.3);
+            }
+            25% {
+                transform: translateY(-3px) rotate(1deg);
+                box-shadow: 0 8px 25px rgba(255, 193, 7, 0.4);
+            }
+            75% {
+                transform: translateY(-3px) rotate(-1deg);
+                box-shadow: 0 8px 25px rgba(255, 193, 7, 0.4);
+            }
+        }
+
+        .donate-author-image:hover {
+            animation: none;
+            transform: scale(1.05);
+        }
+
+        .donate-author-image:hover::before,
+        .donate-author-image:hover::after {
+            animation-play-state: paused;
         }
 
 
@@ -853,6 +1287,16 @@
     <div class="container">
         <div class="header">
             <div class="image-wrapper">
+                <div class="audio-bars">
+                    <span class="audio-bar"></span>
+                    <span class="audio-bar"></span>
+                    <span class="audio-bar"></span>
+                    <span class="audio-bar"></span>
+                    <span class="audio-bar"></span>
+                    <span class="audio-bar"></span>
+                    <span class="audio-bar"></span>
+                    <span class="audio-bar"></span>
+                </div>
                 <img src="Neural-Bachata.jpg" 
                      alt="Ilshat Galimov - Neural Bachata" 
                      class="artist-image"
@@ -885,7 +1329,17 @@
 
             <div class="donate-block">
                 <div class="donate-content">
-                    <img src="photo_2026-01-24_00-09-07.jpg" alt="Ilshat Galimov" class="donate-author-image">
+                    <div class="donate-image-wrapper">
+                        <div class="audio-bars-donate">
+                            <span class="audio-bar-donate"></span>
+                            <span class="audio-bar-donate"></span>
+                            <span class="audio-bar-donate"></span>
+                            <span class="audio-bar-donate"></span>
+                            <span class="audio-bar-donate"></span>
+                            <span class="audio-bar-donate"></span>
+                        </div>
+                        <img src="photo_2026-01-24_00-09-07.jpg" alt="Ilshat Galimov" class="donate-author-image">
+                    </div>
                     <div class="donate-title">Донаты в Яндекс Музыке</div>
                     <div class="donate-text">Поддержите артиста и помогите создавать новую музыку</div>
                     <a href="https://tips.yandex.ru/guest/payment/3754483?wl=yandex_music_dark" class="donate-button" target="_blank" rel="noopener noreferrer">

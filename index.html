@@ -73,6 +73,18 @@
             color: white;
             position: relative;
             overflow: hidden;
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .image-wrapper {
@@ -245,6 +257,17 @@
             position: relative;
             overflow: hidden;
             transition: all 0.3s ease;
+        }
+
+        .donate-author-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 20px;
+            border: 4px solid rgba(255, 193, 7, 0.5);
+            box-shadow: 0 6px 20px rgba(255, 193, 7, 0.3);
+            display: block;
         }
 
 
@@ -655,6 +678,39 @@
             text-decoration: underline;
         }
 
+        .footer-donate-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background: transparent;
+            color: var(--primary-color);
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            border: 2px solid var(--primary-color);
+            margin-top: 15px;
+        }
+
+        .footer-donate-button:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(216, 25, 70, 0.3);
+        }
+
+        .footer-donate-button svg {
+            width: 18px;
+            height: 18px;
+            transition: transform 0.3s ease;
+        }
+
+        .footer-donate-button:hover svg {
+            transform: scale(1.1);
+        }
+
         @media (max-width: 640px) {
             .container {
                 border-radius: 16px;
@@ -797,7 +853,7 @@
     <div class="container">
         <div class="header">
             <div class="image-wrapper">
-                <img src="./Ilshat Galimov - Neural Bachata _ BandLink_files/aZMBG_fQaamjNf_370x370.jpeg" 
+                <img src="Neural-Bachata.jpg" 
                      alt="Ilshat Galimov - Neural Bachata" 
                      class="artist-image"
                      loading="eager"
@@ -809,7 +865,7 @@
 
         <div class="content">
             <p class="description">
-                Слушайте, скачивайте или стримьте новый альбом Neural Bachata на всех популярных платформах
+                Слушайте новый альбом Neural Bachata на всех популярных платформах
             </p>
 
             <div class="album-info">
@@ -824,6 +880,20 @@
                 <div class="info-item">
                     <span class="info-value">EP</span>
                     <span class="info-label">Формат</span>
+                </div>
+            </div>
+
+            <div class="donate-block">
+                <div class="donate-content">
+                    <img src="photo_2026-01-24_00-09-07.jpg" alt="Ilshat Galimov" class="donate-author-image">
+                    <div class="donate-title">Донаты в Яндекс Музыке</div>
+                    <div class="donate-text">Поддержите артиста и помогите создавать новую музыку</div>
+                    <a href="https://tips.yandex.ru/guest/payment/3754483?wl=yandex_music_dark" class="donate-button" target="_blank" rel="noopener noreferrer">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                        </svg>
+                        Поддержать артиста
+                    </a>
                 </div>
             </div>
 
@@ -1029,69 +1099,6 @@
                 </div>
             </div>
 
-            <div class="features-block">
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M12 3C7.03 3 3 7.03 3 12C3 16.97 7.03 21 12 21C16.97 21 21 16.97 21 12C21 7.03 16.97 3 12 3ZM12 19C8.13 19 5 15.87 5 12C5 8.13 8.13 5 12 5C15.87 5 19 8.13 19 12C19 15.87 15.87 19 12 19Z" fill="url(#gradient1)"/>
-                            <path d="M9 9C9 8.45 9.45 8 10 8H14C14.55 8 15 8.45 15 9V15C15 15.55 14.55 16 14 16H10C9.45 16 9 15.55 9 15V9Z" fill="url(#gradient1)"/>
-                            <circle cx="10" cy="12" r="1.5" fill="white"/>
-                            <circle cx="14" cy="12" r="1.5" fill="white"/>
-                            <defs>
-                                <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="100%">
-                                    <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
-                                    <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
-                                </linearGradient>
-                            </defs>
-                        </svg>
-                    </div>
-                    <div class="feature-title">Neural Bachata</div>
-                    <div class="feature-text">Современная бачата</div>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect x="3" y="8" width="18" height="8" rx="2" fill="url(#gradient2)"/>
-                            <rect x="5" y="10" width="3" height="4" rx="1" fill="white" opacity="0.8"/>
-                            <rect x="10" y="10" width="3" height="4" rx="1" fill="white" opacity="0.8"/>
-                            <rect x="15" y="10" width="3" height="4" rx="1" fill="white" opacity="0.8"/>
-                            <path d="M6 6L8 8L6 10" stroke="url(#gradient2)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-                            <path d="M18 6L16 8L18 10" stroke="url(#gradient2)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-                            <circle cx="7" cy="14" r="1.5" fill="url(#gradient2)"/>
-                            <circle cx="12" cy="14" r="1.5" fill="url(#gradient2)"/>
-                            <circle cx="17" cy="14" r="1.5" fill="url(#gradient2)"/>
-                            <defs>
-                                <linearGradient id="gradient2" x1="0%" y1="0%" x2="100%" y2="100%">
-                                    <stop offset="0%" style="stop-color:#f093fb;stop-opacity:1" />
-                                    <stop offset="100%" style="stop-color:#667eea;stop-opacity:1" />
-                                </linearGradient>
-                            </defs>
-                        </svg>
-                    </div>
-                    <div class="feature-title">Электронная музыка</div>
-                    <div class="feature-text">Уникальное сочетание стилей</div>
-                </div>
-            </div>
-
-            <div class="donate-block">
-                <div class="donate-content">
-                    <div class="donate-icon">
-                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M12 2L13.09 8.26L20 9L13.09 9.74L12 16L10.91 9.74L4 9L10.91 8.26L12 2Z" fill="#1a1a1a"/>
-                            <path d="M12 6C8.69 6 6 8.69 6 12C6 15.31 8.69 18 12 18C15.31 18 18 15.31 18 12C18 8.69 15.31 6 12 6ZM12 16C9.79 16 8 14.21 8 12C8 9.79 9.79 8 12 8C14.21 8 16 9.79 16 12C16 14.21 14.21 16 12 16Z" fill="#1a1a1a" opacity="0.3"/>
-                        </svg>
-                    </div>
-                    <div class="donate-title">Донаты в Яндекс Музыке</div>
-                    <div class="donate-text">Поддержите артиста и помогите создавать новую музыку</div>
-                    <a href="https://tips.yandex.ru/guest/payment/3754483?wl=yandex_music_dark" class="donate-button" target="_blank" rel="noopener noreferrer">
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-                        </svg>
-                        Поддержать артиста
-                    </a>
-                </div>
-            </div>
-
             <div class="links-section">
                 <h2 class="section-title">Слушать на платформах</h2>
                 <div class="links-grid">
@@ -1136,6 +1143,12 @@
 
         <div class="footer">
             <p>© 2024 Ilshat Galimov | <a href="https://band.link/aZMBG" target="_blank" rel="noopener noreferrer">BandLink</a></p>
+            <a href="https://tips.yandex.ru/guest/payment/3754483?wl=yandex_music_dark" class="footer-donate-button" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                </svg>
+                Поддержать артиста
+            </a>
         </div>
     </div>
 

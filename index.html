@@ -1179,6 +1179,37 @@
                 }
             }
 
+            function playNextTrack(currentTrack) {
+                const nextTrack = currentTrack + 1;
+                if (nextTrack <= 6 && audioPlayers[nextTrack]) {
+                    // Останавливаем текущий трек
+                    const currentPlayer = audioPlayers[currentTrack];
+                    if (currentPlayer) {
+                        currentPlayer.audio.pause();
+                        currentPlayer.audio.currentTime = 0;
+                        currentPlayer.playIcon.style.display = 'block';
+                        currentPlayer.pauseIcon.style.display = 'none';
+                        currentPlayer.progressBar.style.width = '0%';
+                        currentPlayer.currentTimeEl.textContent = '0:00';
+                    }
+                    
+                    // Запускаем следующий трек
+                    const nextPlayer = audioPlayers[nextTrack];
+                    if (nextPlayer) {
+                        nextPlayer.audio.currentTime = 0;
+                        nextPlayer.audio.play();
+                        nextPlayer.playIcon.style.display = 'none';
+                        nextPlayer.pauseIcon.style.display = 'block';
+                        currentPlaying = nextTrack;
+                        updateProgress();
+                    }
+                } else {
+                    // Если это последний трек, просто сбрасываем состояние
+                    if (rafId) cancelAnimationFrame(rafId);
+                    currentPlaying = null;
+                }
+            }
+
             function initPlayer(i) {
                 const audio = document.getElementById('audio-' + i);
                 if (!audio) return;
@@ -1244,7 +1275,9 @@
                     progressBar.style.width = '0%';
                     currentTimeEl.textContent = '0:00';
                     if (rafId) cancelAnimationFrame(rafId);
-                    currentPlaying = null;
+                    
+                    // Автоматически переключаемся на следующий трек
+                    playNextTrack(i);
                 });
             }
 

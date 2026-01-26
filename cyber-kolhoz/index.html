@@ -384,6 +384,18 @@
             display: inline-block;
         }
 
+        .artist-name a {
+            color: var(--text-color);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .artist-name a:hover {
+            color: var(--primary-color);
+            text-shadow: 0 2px 10px rgba(0, 245, 255, 0.5);
+        }
+
         .artist-name::after {
             content: '';
             position: absolute;
@@ -394,6 +406,13 @@
             height: 3px;
             background: rgba(255, 255, 255, 0.6);
             border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .artist-name:hover::after {
+            width: 100px;
+            background: var(--primary-color);
+            box-shadow: 0 0 10px rgba(0, 245, 255, 0.5);
         }
 
         .track-name {
@@ -1173,6 +1192,41 @@
             text-decoration: underline;
         }
 
+        .footer-home-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background: transparent;
+            color: var(--primary-color);
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            border: 1px solid var(--primary-color);
+            margin-top: 15px;
+            margin-right: 10px;
+            box-shadow: 0 0 10px rgba(0, 245, 255, 0.3);
+        }
+
+        .footer-home-button:hover {
+            background: var(--primary-color);
+            color: #0a0a14;
+            transform: translateY(-2px);
+            box-shadow: 0 0 20px rgba(0, 245, 255, 0.6);
+        }
+
+        .footer-home-button svg {
+            width: 18px;
+            height: 18px;
+            transition: transform 0.3s ease;
+        }
+
+        .footer-home-button:hover svg {
+            transform: scale(1.1);
+        }
+
         .footer-donate-button {
             display: inline-flex;
             align-items: center;
@@ -1365,7 +1419,7 @@
                      loading="eager"
                      decoding="async">
             </div>
-            <h1 class="artist-name">Ilshat Galimov</h1>
+            <h1 class="artist-name"><a href="../index.html">Ilshat Galimov</a></h1>
             <p class="track-name">CYBER-KOLHOZ 2077</p>
         </div>
 
@@ -1400,7 +1454,7 @@
                             <span class="audio-bar-donate"></span>
                             <span class="audio-bar-donate"></span>
                         </div>
-                        <img src="../photo_2026-01-24_00-09-07.jpg" alt="Ilshat Galimov" class="donate-author-image">
+                        <img src="../neural-bachata/photo_2026-01-24_00-09-07.jpg" alt="Ilshat Galimov" class="donate-author-image">
                     </div>
                     <div class="donate-title">Донаты в Яндекс Музыке</div>
                     <div class="donate-text">Поддержите артиста и помогите создавать новую музыку</div>
@@ -1627,12 +1681,20 @@
 
         <div class="footer">
             <p>© 2024 Ilshat Galimov | <a href="https://band.link/aZMBG" target="_blank" rel="noopener noreferrer">BandLink</a></p>
-            <a href="https://tips.yandex.ru/guest/payment/3754483?wl=yandex_music_dark" class="footer-donate-button" target="_blank" rel="noopener noreferrer">
-                <svg viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-                </svg>
-                Поддержать артиста
-            </a>
+            <div style="display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;">
+                <a href="../index.html" class="footer-home-button">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+                    </svg>
+                    На главную
+                </a>
+                <a href="https://tips.yandex.ru/guest/payment/3754483?wl=yandex_music_dark" class="footer-donate-button" target="_blank" rel="noopener noreferrer">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                    </svg>
+                    Поддержать артиста
+                </a>
+            </div>
         </div>
     </div>
 

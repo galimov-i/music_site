@@ -1,0 +1,1839 @@
+<!DOCTYPE html>
+<html lang="ru" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Ilshat Galimov - Rise from the Shadows | Dark Theme with Organic Animation</title>
+    <meta name="description" content="Слушайте, скачивайте или стримьте Rise from the Shadows прямо сейчас!">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Ilshat Galimov - Rise from the Shadows | BandLink">
+    <meta property="og:description" content="Слушайте, скачивайте или стримьте Rise from the Shadows прямо сейчас!">
+    <meta property="og:image" content="./3d1a7209-220b-434c-a455-96a6a975cb44.png">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Ilshat Galimov - Rise from the Shadows | BandLink">
+    <meta name="twitter:description" content="Слушайте, скачивайте или стримьте Rise from the Shadows прямо сейчас!">
+    <meta name="twitter:image" content="./3d1a7209-220b-434c-a455-96a6a975cb44.png">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #00f5ff;
+            --secondary-color: #ff00ff;
+            --accent-color: #00ff88;
+            --text-color: #ffffff;
+            --bg-color: rgba(10, 10, 20, 0.85);
+            --secondary-bg: rgba(20, 20, 35, 0.6);
+            --border-color: rgba(0, 245, 255, 0.3);
+            --hover-color: #00d4e6;
+            --shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+            --shadow-hover: 0 0 30px rgba(0, 245, 255, 0.6);
+            --neon-glow: 0 0 20px rgba(0, 245, 255, 0.8), 0 0 40px rgba(0, 245, 255, 0.4);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            background: #0a0a14;
+            background-image: 
+                radial-gradient(circle at 20% 50%, rgba(0, 245, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 0, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 20%, rgba(0, 255, 136, 0.05) 0%, transparent 50%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            color: var(--text-color);
+            line-height: 1.6;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0, 245, 255, 0.03) 2px, rgba(0, 245, 255, 0.03) 4px),
+                repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(255, 0, 255, 0.03) 2px, rgba(255, 0, 255, 0.03) 4px);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            width: 100%;
+            background: var(--bg-color);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 24px;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow), var(--neon-glow);
+            overflow: hidden;
+            position: relative;
+            z-index: 1;
+        }
+
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+            opacity: 0.6;
+        }
+
+
+
+        .header {
+            text-align: center;
+            padding: 40px 30px 30px;
+            background: linear-gradient(135deg, rgba(0, 245, 255, 0.1) 0%, rgba(255, 0, 255, 0.1) 100%);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            color: white;
+            position: relative;
+            overflow: hidden;
+            animation: fadeInDown 0.8s ease-out;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(0, 245, 255, 0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .image-wrapper {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        .audio-bars {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+            width: 240px;
+            height: 240px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .audio-bar {
+            width: 3px;
+            height: 20px;
+            background: linear-gradient(180deg, rgba(102, 126, 234, 0.8) 0%, rgba(118, 75, 162, 0.8) 100%);
+            border-radius: 2px;
+            position: absolute;
+            transform-origin: center;
+        }
+
+        .audio-bar:nth-child(1) {
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%) rotate(0deg);
+            animation: barPulse1 1.2s ease-in-out infinite;
+        }
+
+        .audio-bar:nth-child(2) {
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%) rotate(90deg);
+            animation: barPulse2 1.4s ease-in-out infinite 0.1s;
+        }
+
+        .audio-bar:nth-child(3) {
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%) rotate(180deg);
+            animation: barPulse3 1.3s ease-in-out infinite 0.2s;
+        }
+
+        .audio-bar:nth-child(4) {
+            top: 50%;
+            left: 20px;
+            transform: translateY(-50%) rotate(270deg);
+            animation: barPulse4 1.5s ease-in-out infinite 0.3s;
+        }
+
+        .audio-bar:nth-child(5) {
+            top: 40px;
+            right: 50px;
+            transform: rotate(45deg);
+            animation: barPulse1 1.35s ease-in-out infinite 0.4s;
+        }
+
+        .audio-bar:nth-child(6) {
+            bottom: 40px;
+            right: 50px;
+            transform: rotate(135deg);
+            animation: barPulse2 1.25s ease-in-out infinite 0.5s;
+        }
+
+        .audio-bar:nth-child(7) {
+            bottom: 40px;
+            left: 50px;
+            transform: rotate(225deg);
+            animation: barPulse3 1.4s ease-in-out infinite 0.6s;
+        }
+
+        .audio-bar:nth-child(8) {
+            top: 40px;
+            left: 50px;
+            transform: rotate(315deg);
+            animation: barPulse4 1.3s ease-in-out infinite 0.7s;
+        }
+
+        @keyframes barPulse1 {
+            0%, 100% {
+                height: 15px;
+                opacity: 0.6;
+            }
+            50% {
+                height: 35px;
+                opacity: 1;
+            }
+        }
+
+        @keyframes barPulse2 {
+            0%, 100% {
+                height: 20px;
+                opacity: 0.5;
+            }
+            50% {
+                height: 40px;
+                opacity: 1;
+            }
+        }
+
+        @keyframes barPulse3 {
+            0%, 100% {
+                height: 18px;
+                opacity: 0.7;
+            }
+            50% {
+                height: 32px;
+                opacity: 1;
+            }
+        }
+
+        @keyframes barPulse4 {
+            0%, 100% {
+                height: 22px;
+                opacity: 0.6;
+            }
+            50% {
+                height: 38px;
+                opacity: 1;
+            }
+        }
+
+        .image-wrapper::before,
+        .image-wrapper::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 2px solid rgba(102, 126, 234, 0.3);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .image-wrapper::before {
+            animation: soundWave1 3s ease-in-out infinite;
+        }
+
+        .image-wrapper::after {
+            animation: soundWave2 3s ease-in-out infinite 0.5s;
+        }
+
+        @keyframes soundWave1 {
+            0% {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 0.6;
+            }
+            50% {
+                transform: translate(-50%, -50%) scale(1.15);
+                opacity: 0.3;
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(1.3);
+                opacity: 0;
+            }
+        }
+
+        @keyframes soundWave2 {
+            0% {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 0.4;
+            }
+            50% {
+                transform: translate(-50%, -50%) scale(1.2);
+                opacity: 0.2;
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(1.35);
+                opacity: 0;
+            }
+        }
+
+        .artist-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            object-fit: cover;
+            border: 3px solid var(--primary-color);
+            box-shadow: 0 0 30px rgba(0, 245, 255, 0.6), 0 0 60px rgba(0, 245, 255, 0.3);
+            transition: transform 0.3s ease;
+            position: relative;
+            z-index: 1;
+            will-change: transform, filter;
+            animation: organicPulse 4s ease-in-out infinite;
+            filter: brightness(1.1) saturate(1.2);
+        }
+
+        @keyframes organicPulse {
+            0%, 100% {
+                border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+                transform: scale(1) rotate(0deg);
+                box-shadow: 0 0 20px rgba(0, 245, 255, 0.6), 0 0 40px rgba(0, 245, 255, 0.3);
+            }
+            25% {
+                border-radius: 70% 30% 30% 70% / 70% 70% 30% 30%;
+                transform: scale(1.05) rotate(5deg);
+                box-shadow: 0 0 35px rgba(0, 245, 255, 0.8), 0 0 60px rgba(0, 245, 255, 0.4);
+            }
+            50% {
+                border-radius: 50% 50% 50% 50% / 50% 50% 50% 50%;
+                transform: scale(1.08) rotate(0deg);
+                box-shadow: 0 0 40px rgba(0, 245, 255, 0.9), 0 0 80px rgba(0, 245, 255, 0.5), 0 0 120px rgba(255, 0, 255, 0.3);
+            }
+            75% {
+                border-radius: 30% 70% 70% 30% / 70% 30% 30% 70%;
+                transform: scale(1.05) rotate(-5deg);
+                box-shadow: 0 0 35px rgba(0, 245, 255, 0.8), 0 0 60px rgba(0, 245, 255, 0.4);
+            }
+        }
+
+        .artist-image:hover {
+            transform: scale(1.1) rotate(0deg);
+            animation: none;
+            box-shadow: 0 0 50px rgba(0, 245, 255, 1), 0 0 100px rgba(0, 245, 255, 0.6);
+            filter: brightness(1.3) saturate(1.4);
+        }
+
+        .image-wrapper:hover::before,
+        .image-wrapper:hover::after {
+            animation-play-state: paused;
+        }
+
+        .artist-name {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            position: relative;
+            display: inline-block;
+        }
+
+        .artist-name a {
+            color: var(--text-color);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .artist-name a:hover {
+            color: var(--primary-color);
+            text-shadow: 0 2px 10px rgba(0, 245, 255, 0.5);
+        }
+
+        .artist-name::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .artist-name:hover::after {
+            width: 100px;
+            background: var(--primary-color);
+            box-shadow: 0 0 10px rgba(0, 245, 255, 0.5);
+        }
+
+        .track-name {
+            font-size: 20px;
+            font-weight: 400;
+            opacity: 0.95;
+            margin-bottom: 20px;
+            font-style: italic;
+            text-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .content {
+            padding: 40px 30px;
+            position: relative;
+            background: rgba(10, 10, 20, 0.5);
+        }
+
+        .content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border-color), transparent);
+        }
+
+        .album-info {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.08) 0%, rgba(118, 75, 162, 0.08) 100%);
+            border-radius: 16px;
+            border: 1px solid rgba(102, 126, 234, 0.1);
+        }
+
+        .info-item {
+            text-align: center;
+            padding: 10px;
+        }
+
+        .info-value {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .info-label {
+            font-size: 12px;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .features-block {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-bottom: 30px;
+        }
+
+        .feature-card {
+            padding: 20px;
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            border-radius: 12px;
+            border: 2px solid var(--border-color);
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+
+        .feature-card:hover {
+            border-color: var(--primary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.2);
+        }
+
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            margin: 0 auto 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .feature-icon svg {
+            width: 100%;
+            height: 100%;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover .feature-icon svg {
+            transform: scale(1.1);
+        }
+
+        .feature-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-color);
+            margin-bottom: 5px;
+        }
+
+        .feature-text {
+            font-size: 12px;
+            color: #666;
+            line-height: 1.4;
+        }
+
+        .donate-block {
+            margin-bottom: 30px;
+            padding: 25px;
+            background: rgba(0, 255, 136, 0.05);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 16px;
+            border: 1px solid rgba(0, 255, 136, 0.3);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 20px rgba(0, 255, 136, 0.2);
+        }
+
+        .donate-block:hover {
+            border-color: var(--accent-color);
+            box-shadow: 0 0 30px rgba(0, 255, 136, 0.4);
+        }
+
+        .donate-image-wrapper {
+            position: relative;
+            display: inline-block;
+            margin: 0 auto 20px;
+        }
+
+        .audio-bars-donate {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 160px;
+            height: 160px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .audio-bar-donate {
+            width: 2.5px;
+            height: 15px;
+            background: linear-gradient(180deg, rgba(255, 215, 0, 0.9) 0%, rgba(255, 193, 7, 0.9) 100%);
+            border-radius: 2px;
+            position: absolute;
+            transform-origin: center;
+        }
+
+        .audio-bar-donate:nth-child(1) {
+            top: 15px;
+            left: 50%;
+            transform: translateX(-50%) rotate(0deg);
+            animation: barPulseDonate1 1.3s ease-in-out infinite;
+        }
+
+        .audio-bar-donate:nth-child(2) {
+            top: 50%;
+            right: 15px;
+            transform: translateY(-50%) rotate(90deg);
+            animation: barPulseDonate2 1.5s ease-in-out infinite 0.15s;
+        }
+
+        .audio-bar-donate:nth-child(3) {
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%) rotate(180deg);
+            animation: barPulseDonate3 1.4s ease-in-out infinite 0.3s;
+        }
+
+        .audio-bar-donate:nth-child(4) {
+            top: 50%;
+            left: 15px;
+            transform: translateY(-50%) rotate(270deg);
+            animation: barPulseDonate1 1.35s ease-in-out infinite 0.45s;
+        }
+
+        .audio-bar-donate:nth-child(5) {
+            top: 30px;
+            right: 35px;
+            transform: rotate(45deg);
+            animation: barPulseDonate2 1.4s ease-in-out infinite 0.6s;
+        }
+
+        .audio-bar-donate:nth-child(6) {
+            bottom: 30px;
+            left: 35px;
+            transform: rotate(225deg);
+            animation: barPulseDonate3 1.3s ease-in-out infinite 0.75s;
+        }
+
+        @keyframes barPulseDonate1 {
+            0%, 100% {
+                height: 12px;
+                opacity: 0.6;
+            }
+            50% {
+                height: 28px;
+                opacity: 1;
+            }
+        }
+
+        @keyframes barPulseDonate2 {
+            0%, 100% {
+                height: 15px;
+                opacity: 0.5;
+            }
+            50% {
+                height: 32px;
+                opacity: 1;
+            }
+        }
+
+        @keyframes barPulseDonate3 {
+            0%, 100% {
+                height: 10px;
+                opacity: 0.7;
+            }
+            50% {
+                height: 26px;
+                opacity: 1;
+            }
+        }
+
+        .donate-author-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid rgba(255, 193, 7, 0.5);
+            box-shadow: 0 6px 20px rgba(255, 193, 7, 0.3);
+            display: block;
+            position: relative;
+            z-index: 1;
+            animation: gentleSway 4s ease-in-out infinite;
+            transition: transform 0.3s ease;
+        }
+
+        .donate-author-image::before,
+        .donate-author-image::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 2px solid rgba(255, 193, 7, 0.4);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .donate-author-image::before {
+            animation: soundWaveDonate1 4s ease-in-out infinite;
+        }
+
+        .donate-author-image::after {
+            animation: soundWaveDonate2 4s ease-in-out infinite 0.6s;
+        }
+
+        @keyframes soundWaveDonate1 {
+            0% {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 0.5;
+            }
+            50% {
+                transform: translate(-50%, -50%) scale(1.2);
+                opacity: 0.25;
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(1.4);
+                opacity: 0;
+            }
+        }
+
+        @keyframes soundWaveDonate2 {
+            0% {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 0.4;
+            }
+            50% {
+                transform: translate(-50%, -50%) scale(1.25);
+                opacity: 0.2;
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(1.45);
+                opacity: 0;
+            }
+        }
+
+        @keyframes gentleSway {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+                box-shadow: 0 6px 20px rgba(255, 193, 7, 0.3);
+            }
+            25% {
+                transform: translateY(-3px) rotate(1deg);
+                box-shadow: 0 8px 25px rgba(255, 193, 7, 0.4);
+            }
+            75% {
+                transform: translateY(-3px) rotate(-1deg);
+                box-shadow: 0 8px 25px rgba(255, 193, 7, 0.4);
+            }
+        }
+
+        .donate-author-image:hover {
+            animation: none;
+            transform: scale(1.05);
+        }
+
+        .donate-author-image:hover::before,
+        .donate-author-image:hover::after {
+            animation-play-state: paused;
+        }
+
+
+        .donate-block:hover {
+            border-color: rgba(255, 193, 7, 0.5);
+            box-shadow: 0 8px 24px rgba(255, 193, 7, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .donate-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .donate-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #FFD700 0%, #FFC107 100%);
+            border-radius: 50%;
+            box-shadow: 0 4px 12px rgba(255, 193, 7, 0.3);
+        }
+
+        .donate-icon svg {
+            width: 32px;
+            height: 32px;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+        }
+
+        .donate-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--text-color);
+            margin-bottom: 8px;
+        }
+
+        .donate-text {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .donate-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 28px;
+            background: linear-gradient(135deg, var(--accent-color) 0%, var(--primary-color) 100%);
+            color: #0a0a14;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 15px;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 20px rgba(0, 255, 136, 0.5);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid var(--accent-color);
+        }
+
+        .donate-button:hover {
+            box-shadow: 0 0 30px rgba(0, 255, 136, 0.8), 0 0 50px rgba(0, 245, 255, 0.4);
+            transform: translateY(-2px);
+        }
+
+
+        .donate-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255, 193, 7, 0.3);
+        }
+
+        .donate-button svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .audio-section {
+            margin-bottom: 30px;
+        }
+
+        .audio-player-wrapper {
+            background: rgba(20, 20, 35, 0.6);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 15px;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .audio-player-wrapper:hover {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 20px rgba(0, 245, 255, 0.3);
+        }
+
+
+        .audio-player-wrapper:hover {
+            border-color: var(--primary-color);
+            box-shadow: 0 4px 16px rgba(102, 126, 234, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .audio-track-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .audio-track-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+        }
+
+        .audio-track-icon svg {
+            width: 28px;
+            height: 28px;
+            fill: white;
+        }
+
+        .audio-track-details {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .audio-track-name {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-color);
+            margin-bottom: 4px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .audio-track-artist {
+            font-size: 13px;
+            color: #888;
+        }
+
+        .audio-controls {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            width: 100%;
+        }
+
+        .audio-play-button {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            border: 1px solid var(--primary-color);
+            color: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+            box-shadow: 0 0 15px rgba(0, 245, 255, 0.5);
+        }
+
+        .audio-play-button:hover {
+            box-shadow: 0 0 25px rgba(0, 245, 255, 0.8), 0 0 40px rgba(255, 0, 255, 0.4);
+        }
+
+        .audio-play-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(216, 25, 70, 0.4);
+        }
+
+        .audio-play-button:active {
+            transform: scale(0.95);
+        }
+
+        .audio-play-button svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .audio-progress-container {
+            flex: 1;
+            position: relative;
+            height: 6px;
+            background: var(--border-color);
+            border-radius: 3px;
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        .audio-progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-color) 0%, var(--hover-color) 100%);
+            border-radius: 3px;
+            width: 0%;
+            transition: width 0.1s linear;
+        }
+
+        .audio-time {
+            font-size: 12px;
+            color: #888;
+            min-width: 80px;
+            text-align: right;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .audio-volume-control {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            width: 100px;
+        }
+
+        .audio-volume-slider {
+            flex: 1;
+            height: 4px;
+            background: var(--border-color);
+            border-radius: 2px;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .audio-volume-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-color) 0%, var(--hover-color) 100%);
+            border-radius: 2px;
+            width: 100%;
+        }
+
+        .audio-volume-icon {
+            width: 20px;
+            height: 20px;
+            color: #888;
+            cursor: pointer;
+        }
+
+        .description {
+            text-align: center;
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 30px;
+            line-height: 1.8;
+            position: relative;
+            padding: 20px 20px 20px 60px;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
+            border-radius: 16px;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .description::before {
+            content: '🎵';
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 24px;
+            line-height: 1;
+        }
+
+        .links-section {
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: var(--text-color);
+            text-align: center;
+            position: relative;
+            padding-bottom: 12px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+            border-radius: 2px;
+        }
+
+
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .link-button {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 12px;
+            padding: 16px 20px;
+            background: rgba(20, 20, 35, 0.6);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            font-size: 15px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .link-button svg {
+            width: 24px;
+            height: 24px;
+            flex-shrink: 0;
+            transition: transform 0.3s ease;
+        }
+
+        .link-button:hover svg {
+            transform: scale(1.2) rotate(5deg);
+        }
+
+
+        .link-button:hover {
+            border-color: var(--primary-color);
+            background: rgba(0, 245, 255, 0.1);
+            color: var(--primary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 0 20px rgba(0, 245, 255, 0.4);
+        }
+
+        .link-button:active {
+            transform: translateY(0);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .social-link {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: 2px solid rgba(102, 126, 234, 0.5);
+            color: white;
+            text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            font-size: 20px;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .social-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .social-link:hover::before {
+            opacity: 1;
+        }
+
+        .social-link:hover {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-color: rgba(102, 126, 234, 0.8);
+            color: white;
+            transform: translateY(-3px) scale(1.1);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6), 0 0 30px rgba(118, 75, 162, 0.4);
+        }
+
+        .social-link svg {
+            position: relative;
+            z-index: 1;
+            transition: transform 0.3s ease;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+        }
+
+        .social-link:hover svg {
+            transform: scale(1.2);
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+        }
+
+
+        .footer {
+            text-align: center;
+            padding: 20px 30px;
+            background: rgba(10, 10, 20, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-top: 1px solid var(--border-color);
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.7);
+            position: relative;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+        }
+
+        .footer a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-home-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background: transparent;
+            color: var(--primary-color);
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            border: 1px solid var(--primary-color);
+            margin-top: 15px;
+            margin-right: 10px;
+            box-shadow: 0 0 10px rgba(0, 245, 255, 0.3);
+        }
+
+        .footer-home-button:hover {
+            background: var(--primary-color);
+            color: #0a0a14;
+            transform: translateY(-2px);
+            box-shadow: 0 0 20px rgba(0, 245, 255, 0.6);
+        }
+
+        .footer-home-button svg {
+            width: 18px;
+            height: 18px;
+            transition: transform 0.3s ease;
+        }
+
+        .footer-home-button:hover svg {
+            transform: scale(1.1);
+        }
+
+        .footer-donate-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background: transparent;
+            color: var(--primary-color);
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            border: 1px solid var(--primary-color);
+            margin-top: 15px;
+            box-shadow: 0 0 10px rgba(0, 245, 255, 0.3);
+        }
+
+        .footer-donate-button:hover {
+            background: var(--primary-color);
+            color: #0a0a14;
+            transform: translateY(-2px);
+            box-shadow: 0 0 20px rgba(0, 245, 255, 0.6);
+        }
+
+        .footer-donate-button svg {
+            width: 18px;
+            height: 18px;
+            transition: transform 0.3s ease;
+        }
+
+        .footer-donate-button:hover svg {
+            transform: scale(1.1);
+        }
+
+        @media (max-width: 640px) {
+            .container {
+                border-radius: 16px;
+            }
+
+            .header {
+                padding: 30px 20px 20px;
+            }
+
+            .artist-image {
+                width: 150px;
+                height: 150px;
+            }
+
+            .image-wrapper::after {
+                top: -20px;
+                right: -20px;
+                font-size: 30px;
+            }
+
+            .artist-name {
+                font-size: 26px;
+            }
+
+            .track-name {
+                font-size: 18px;
+            }
+
+            .content {
+                padding: 30px 20px;
+            }
+
+            .description {
+                padding: 15px 15px 15px 50px;
+                font-size: 14px;
+            }
+
+            .description::before {
+                left: 15px;
+                font-size: 20px;
+            }
+
+            .album-info {
+                grid-template-columns: 1fr;
+                gap: 10px;
+                padding: 15px;
+            }
+
+            .features-block {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+
+            .donate-block {
+                padding: 20px 15px;
+            }
+
+            .donate-icon {
+                width: 50px;
+                height: 50px;
+            }
+
+            .donate-icon svg {
+                width: 28px;
+                height: 28px;
+            }
+
+            .donate-title {
+                font-size: 18px;
+            }
+
+            .donate-text {
+                font-size: 13px;
+            }
+
+            .donate-button {
+                padding: 12px 24px;
+                font-size: 14px;
+            }
+
+            .links-grid {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+
+            .link-button {
+                padding: 14px 18px;
+            }
+
+            .section-title::before {
+                display: none;
+            }
+
+            .audio-player-wrapper {
+                padding: 15px;
+            }
+
+            .audio-track-info {
+                gap: 12px;
+                margin-bottom: 12px;
+            }
+
+            .audio-track-icon {
+                width: 40px;
+                height: 40px;
+            }
+
+            .audio-track-icon svg {
+                width: 24px;
+                height: 24px;
+            }
+
+            .audio-track-name {
+                font-size: 14px;
+            }
+
+            .audio-track-artist {
+                font-size: 12px;
+            }
+
+            .audio-play-button {
+                width: 40px;
+                height: 40px;
+            }
+
+            .audio-play-button svg {
+                width: 20px;
+                height: 20px;
+            }
+
+            .audio-time {
+                font-size: 11px;
+                min-width: 70px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="image-wrapper">
+                <div class="audio-bars">
+                    <span class="audio-bar"></span>
+                    <span class="audio-bar"></span>
+                    <span class="audio-bar"></span>
+                    <span class="audio-bar"></span>
+                    <span class="audio-bar"></span>
+                    <span class="audio-bar"></span>
+                    <span class="audio-bar"></span>
+                    <span class="audio-bar"></span>
+                </div>
+                <img src="3d1a7209-220b-434c-a455-96a6a975cb44.png" 
+                     alt="Ilshat Galimov - Rise from the Shadows" 
+                     class="artist-image"
+                     loading="eager"
+                     decoding="async">
+            </div>
+            <h1 class="artist-name"><a href="../index.html">Ilshat Galimov</a></h1>
+            <p class="track-name">Rise from the Shadows</p>
+        </div>
+
+        <div class="content">
+            <p class="description">
+                Слушайте новый альбом Rise from the Shadows на всех популярных платформах
+            </p>
+
+            <div class="album-info">
+                <div class="info-item">
+                    <span class="info-value">2026</span>
+                    <span class="info-label">Год выпуска</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-value">5</span>
+                    <span class="info-label">Треков</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-value">EP</span>
+                    <span class="info-label">Формат</span>
+                </div>
+            </div>
+
+            <div class="donate-block">
+                <div class="donate-content">
+                    <div class="donate-image-wrapper">
+                        <div class="audio-bars-donate">
+                            <span class="audio-bar-donate"></span>
+                            <span class="audio-bar-donate"></span>
+                            <span class="audio-bar-donate"></span>
+                            <span class="audio-bar-donate"></span>
+                            <span class="audio-bar-donate"></span>
+                            <span class="audio-bar-donate"></span>
+                        </div>
+                        <img src="../neural-bachata/photo_2026-01-24_00-09-07.jpg" alt="Ilshat Galimov" class="donate-author-image">
+                    </div>
+                    <div class="donate-title">Донаты в Яндекс Музыке</div>
+                    <div class="donate-text">Поддержите артиста и помогите создавать новую музыку</div>
+                    <a href="https://tips.yandex.ru/guest/payment/3754483?wl=yandex_music_dark" class="donate-button" target="_blank" rel="noopener noreferrer">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                        </svg>
+                        Поддержать артиста
+                    </a>
+                </div>
+            </div>
+
+            <div class="audio-section">
+                <h2 class="section-title">Слушать альбом</h2>
+                
+                <div class="audio-player-wrapper" data-track="1">
+                    <div class="audio-track-info">
+                        <div class="audio-track-icon">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
+                            </svg>
+                        </div>
+                        <div class="audio-track-details">
+                            <div class="audio-track-name">Digital Dash</div>
+                            <div class="audio-track-artist">Ilshat Galimov</div>
+                        </div>
+                    </div>
+                    <audio id="audio-1" preload="metadata">
+                        <source src="Digital Dash.wav" type="audio/wav">
+                    </audio>
+                    <div class="audio-controls">
+                        <button class="audio-play-button" data-audio="1">
+                            <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M8 5v14l11-7z"/>
+                            </svg>
+                            <svg class="pause-icon" viewBox="0 0 24 24" fill="currentColor" style="display: none;">
+                                <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/>
+                            </svg>
+                        </button>
+                        <div class="audio-progress-container" data-audio="1">
+                            <div class="audio-progress-bar" data-audio="1"></div>
+                        </div>
+                        <div class="audio-time">
+                            <span class="current-time">0:00</span> / <span class="total-time">0:00</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="audio-player-wrapper" data-track="2">
+                    <div class="audio-track-info">
+                        <div class="audio-track-icon">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
+                            </svg>
+                        </div>
+                        <div class="audio-track-details">
+                            <div class="audio-track-name">Midnight Ambition</div>
+                            <div class="audio-track-artist">Ilshat Galimov</div>
+                        </div>
+                    </div>
+                    <audio id="audio-2" preload="metadata">
+                        <source src="Midnight Ambition.wav" type="audio/wav">
+                    </audio>
+                    <div class="audio-controls">
+                        <button class="audio-play-button" data-audio="2">
+                            <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M8 5v14l11-7z"/>
+                            </svg>
+                            <svg class="pause-icon" viewBox="0 0 24 24" fill="currentColor" style="display: none;">
+                                <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/>
+                            </svg>
+                        </button>
+                        <div class="audio-progress-container" data-audio="2">
+                            <div class="audio-progress-bar" data-audio="2"></div>
+                        </div>
+                        <div class="audio-time">
+                            <span class="current-time">0:00</span> / <span class="total-time">0:00</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="audio-player-wrapper" data-track="3">
+                    <div class="audio-track-info">
+                        <div class="audio-track-icon">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
+                            </svg>
+                        </div>
+                        <div class="audio-track-details">
+                            <div class="audio-track-name">Neon In My Palm</div>
+                            <div class="audio-track-artist">Ilshat Galimov</div>
+                        </div>
+                    </div>
+                    <audio id="audio-3" preload="metadata">
+                        <source src="Neon In My Palm.wav" type="audio/wav">
+                    </audio>
+                    <div class="audio-controls">
+                        <button class="audio-play-button" data-audio="3">
+                            <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M8 5v14l11-7z"/>
+                            </svg>
+                            <svg class="pause-icon" viewBox="0 0 24 24" fill="currentColor" style="display: none;">
+                                <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/>
+                            </svg>
+                        </button>
+                        <div class="audio-progress-container" data-audio="3">
+                            <div class="audio-progress-bar" data-audio="3"></div>
+                        </div>
+                        <div class="audio-time">
+                            <span class="current-time">0:00</span> / <span class="total-time">0:00</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="audio-player-wrapper" data-track="4">
+                    <div class="audio-track-info">
+                        <div class="audio-track-icon">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
+                            </svg>
+                        </div>
+                        <div class="audio-track-details">
+                            <div class="audio-track-name">Built Crowds</div>
+                            <div class="audio-track-artist">Ilshat Galimov</div>
+                        </div>
+                    </div>
+                    <audio id="audio-4" preload="metadata">
+                        <source src="Built Crowds.wav" type="audio/wav">
+                    </audio>
+                    <div class="audio-controls">
+                        <button class="audio-play-button" data-audio="4">
+                            <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M8 5v14l11-7z"/>
+                            </svg>
+                            <svg class="pause-icon" viewBox="0 0 24 24" fill="currentColor" style="display: none;">
+                                <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/>
+                            </svg>
+                        </button>
+                        <div class="audio-progress-container" data-audio="4">
+                            <div class="audio-progress-bar" data-audio="4"></div>
+                        </div>
+                        <div class="audio-time">
+                            <span class="current-time">0:00</span> / <span class="total-time">0:00</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="audio-player-wrapper" data-track="5">
+                    <div class="audio-track-info">
+                        <div class="audio-track-icon">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
+                            </svg>
+                        </div>
+                        <div class="audio-track-details">
+                            <div class="audio-track-name">Chaos Throne</div>
+                            <div class="audio-track-artist">Ilshat Galimov</div>
+                        </div>
+                    </div>
+                    <audio id="audio-5" preload="metadata">
+                        <source src="Chaos Throne.wav" type="audio/wav">
+                    </audio>
+                    <div class="audio-controls">
+                        <button class="audio-play-button" data-audio="5">
+                            <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M8 5v14l11-7z"/>
+                            </svg>
+                            <svg class="pause-icon" viewBox="0 0 24 24" fill="currentColor" style="display: none;">
+                                <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/>
+                            </svg>
+                        </button>
+                        <div class="audio-progress-container" data-audio="5">
+                            <div class="audio-progress-bar" data-audio="5"></div>
+                        </div>
+                        <div class="audio-time">
+                            <span class="current-time">0:00</span> / <span class="total-time">0:00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="links-section">
+                <h2 class="section-title">Слушать на платформах</h2>
+                <div class="links-grid">
+                    <a href="https://music.mts.ru/album/40249445" class="link-button" target="_blank" rel="noopener noreferrer">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
+                        </svg>
+                        КИОН Музыка
+                    </a>
+                    <a href="https://music.yandex.ru/album/40249445?utm_source=bandlink&utm_medium=Ilshat%20Galimov&utm_campaign=Rise%20from%20the%20Shadows&utm_term=IVwUu" class="link-button" target="_blank" rel="noopener noreferrer">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm-1.5 18h-1.5V6h1.5v12zm4.5-8c0 2.21-1.79 4-4 4s-4-1.79-4-4 1.79-4 4-4 4 1.79 4 4z"/>
+                        </svg>
+                        Яндекс.Музыка
+                    </a>
+                    <a href="https://open.spotify.com/album/7AcMtC7BG2ASevwMnnJ5De" class="link-button" target="_blank" rel="noopener noreferrer">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.093-.899-.461-.12-.368.093-.738.461-.859 4.469-1.121 8.16-.606 11.427 1.32.359.221.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.26.301-3.239-1.98-8.159-2.58-12.008-1.419-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15.169 10.538 18.394 12.841c.361.22.541.761.241 1.20zm.12-3.36C15.24 8.46 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.781-.18-.6.18-1.2.78-1.38 4.26-1.26 11.28-.961 15.721 1.621.539.301.921 1.1.419 1.64-.299.301-.9.241-1.421-.06z"/>
+                        </svg>
+                        Spotify
+                    </a>
+                    <a href="https://music.vk.com/link/ZvgeC" class="link-button" target="_blank" rel="noopener noreferrer">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12.785 16.241s.336-.041.51-.25c.16-.193.16-.557.16-.557s0-1.5.675-1.723c.688-.23 1.542 1.52 2.459 2.19.696.51 1.222.397 1.222.397l2.454-.036s1.283-.081.66-1.092c-.049-.089-.35-.73-1.8-2.063-1.523-1.416-1.32-.59.516-1.81 1.12-.93 1.57-1.497 1.43-1.738-.134-.23-.96-.169-.96-.169l-2.48.015s-.184-.023-.32.055c-.135.075-.22.25-.22.25s-.395 1.05-.92 1.944c-1.11 1.688-1.554 1.78-1.736 1.678-.422-.24-.317-.966-.317-1.482 0-1.61.24-2.28-.47-2.454-.236-.056-.41-.093-1.014-.099-.776-.007-1.432.003-1.803.188-.245.12-.433.388-.318.404.143.02.466.087.636.318.22.3.212.976.212.976s.127 1.88-.295 2.112c-.29.16-.69-.167-1.548-1.667-.44-.77-.772-1.62-.772-1.62s-.064-.16-.179-.246c-.138-.103-.33-.136-.33-.136l-2.36.015s-.354.01-.485.16c-.116.13-.009.402-.009.402s1.79 4.19 3.816 6.3c1.86 1.93 3.98 1.81 3.98 1.81h.952z"/>
+                        </svg>
+                        VK Музыка
+                    </a>
+                </div>
+            </div>
+
+            <div class="links-section">
+                <h2 class="section-title">Социальные сети</h2>
+                <div class="social-links">
+                    <a href="https://t.me/ilshator" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Telegram">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>© 2024 Ilshat Galimov | <a href="https://band.link/aZMBG" target="_blank" rel="noopener noreferrer">BandLink</a></p>
+            <div style="display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;">
+                <a href="../index.html" class="footer-home-button">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+                    </svg>
+                    На главную
+                </a>
+                <a href="https://tips.yandex.ru/guest/payment/3754483?wl=yandex_music_dark" class="footer-donate-button" target="_blank" rel="noopener noreferrer">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                    </svg>
+                    Поддержать артиста
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Оптимизированный аудио-плеер
+        (function() {
+            'use strict';
+            const audioPlayers = {};
+            let currentPlaying = null;
+            let rafId = null;
+
+            function formatTime(seconds) {
+                if (isNaN(seconds)) return '0:00';
+                const mins = Math.floor(seconds / 60);
+                const secs = Math.floor(seconds % 60);
+                return mins + ':' + (secs < 10 ? '0' : '') + secs;
+            }
+
+            function updateProgress() {
+                if (currentPlaying) {
+                    const player = audioPlayers[currentPlaying];
+                    if (player && !player.audio.paused) {
+                        const progress = (player.audio.currentTime / player.audio.duration) * 100;
+                        player.progressBar.style.width = progress + '%';
+                        player.currentTimeEl.textContent = formatTime(player.audio.currentTime);
+                        rafId = requestAnimationFrame(updateProgress);
+                    }
+                }
+            }
+
+            function playNextTrack(currentTrack) {
+                const nextTrack = currentTrack + 1;
+                if (nextTrack <= 5 && audioPlayers[nextTrack]) {
+                    // Останавливаем текущий трек
+                    const currentPlayer = audioPlayers[currentTrack];
+                    if (currentPlayer) {
+                        currentPlayer.audio.pause();
+                        currentPlayer.audio.currentTime = 0;
+                        currentPlayer.playIcon.style.display = 'block';
+                        currentPlayer.pauseIcon.style.display = 'none';
+                        currentPlayer.progressBar.style.width = '0%';
+                        currentPlayer.currentTimeEl.textContent = '0:00';
+                    }
+                    
+                    // Запускаем следующий трек
+                    const nextPlayer = audioPlayers[nextTrack];
+                    if (nextPlayer) {
+                        nextPlayer.audio.currentTime = 0;
+                        nextPlayer.audio.play();
+                        nextPlayer.playIcon.style.display = 'none';
+                        nextPlayer.pauseIcon.style.display = 'block';
+                        currentPlaying = nextTrack;
+                        updateProgress();
+                    }
+                } else {
+                    // Если это последний трек, просто сбрасываем состояние
+                    if (rafId) cancelAnimationFrame(rafId);
+                    currentPlaying = null;
+                }
+            }
+
+            function initPlayer(i) {
+                const audio = document.getElementById('audio-' + i);
+                if (!audio) return;
+
+                const wrapper = audio.closest('.audio-player-wrapper');
+                const playButton = wrapper.querySelector('.audio-play-button[data-audio="' + i + '"]');
+                const progressBar = wrapper.querySelector('.audio-progress-bar[data-audio="' + i + '"]');
+                const progressContainer = wrapper.querySelector('.audio-progress-container[data-audio="' + i + '"]');
+                const currentTimeEl = wrapper.querySelector('.current-time');
+                const totalTimeEl = wrapper.querySelector('.total-time');
+                const playIcon = playButton.querySelector('.play-icon');
+                const pauseIcon = playButton.querySelector('.pause-icon');
+
+                audioPlayers[i] = {
+                    audio: audio,
+                    playButton: playButton,
+                    progressBar: progressBar,
+                    progressContainer: progressContainer,
+                    currentTimeEl: currentTimeEl,
+                    totalTimeEl: totalTimeEl,
+                    playIcon: playIcon,
+                    pauseIcon: pauseIcon
+                };
+
+                audio.addEventListener('loadedmetadata', function() {
+                    totalTimeEl.textContent = formatTime(audio.duration);
+                }, { once: true });
+
+                playButton.addEventListener('click', function() {
+                    if (currentPlaying && currentPlaying !== i) {
+                        const prev = audioPlayers[currentPlaying];
+                        prev.audio.pause();
+                        prev.audio.currentTime = 0;
+                        prev.playIcon.style.display = 'block';
+                        prev.pauseIcon.style.display = 'none';
+                        if (rafId) cancelAnimationFrame(rafId);
+                    }
+
+                    if (audio.paused) {
+                        audio.play();
+                        playIcon.style.display = 'none';
+                        pauseIcon.style.display = 'block';
+                        currentPlaying = i;
+                        updateProgress();
+                    } else {
+                        audio.pause();
+                        playIcon.style.display = 'block';
+                        pauseIcon.style.display = 'none';
+                        if (rafId) cancelAnimationFrame(rafId);
+                        if (currentPlaying === i) currentPlaying = null;
+                    }
+                });
+
+                progressContainer.addEventListener('click', function(e) {
+                    const rect = progressContainer.getBoundingClientRect();
+                    const percentage = (e.clientX - rect.left) / rect.width;
+                    audio.currentTime = percentage * audio.duration;
+                });
+
+                audio.addEventListener('ended', function() {
+                    playIcon.style.display = 'block';
+                    pauseIcon.style.display = 'none';
+                    progressBar.style.width = '0%';
+                    currentTimeEl.textContent = '0:00';
+                    if (rafId) cancelAnimationFrame(rafId);
+                    
+                    // Автоматически переключаемся на следующий трек
+                    playNextTrack(i);
+                });
+            }
+
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', function() {
+                    for (let i = 1; i <= 5; i++) initPlayer(i);
+                });
+            } else {
+                for (let i = 1; i <= 5; i++) initPlayer(i);
+            }
+        })();
+    </script>
+</body>
+</html>

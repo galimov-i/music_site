@@ -1798,8 +1798,8 @@
                     if (currentPlayer) {
                         currentPlayer.audio.pause();
                         currentPlayer.audio.currentTime = 0;
-                        currentPlayer.playIcon.style.display = 'block';
-                        currentPlayer.pauseIcon.style.display = 'none';
+                        if (currentPlayer.playIcon) currentPlayer.playIcon.style.display = 'block';
+                        if (currentPlayer.pauseIcon) currentPlayer.pauseIcon.style.display = 'none';
                         currentPlayer.progressBar.style.width = '0%';
                         currentPlayer.currentTimeEl.textContent = '0:00';
                     }
@@ -1809,8 +1809,8 @@
                     if (nextPlayer) {
                         nextPlayer.audio.currentTime = 0;
                         nextPlayer.audio.play();
-                        nextPlayer.playIcon.style.display = 'none';
-                        nextPlayer.pauseIcon.style.display = 'block';
+                        if (nextPlayer.playIcon) nextPlayer.playIcon.style.display = 'none';
+                        if (nextPlayer.pauseIcon) nextPlayer.pauseIcon.style.display = 'block';
                         currentPlaying = nextTrack;
                         updateProgress();
                     }
@@ -1831,8 +1831,8 @@
                 const progressContainer = wrapper.querySelector('.audio-progress-container[data-audio="' + i + '"]');
                 const currentTimeEl = wrapper.querySelector('.current-time');
                 const totalTimeEl = wrapper.querySelector('.total-time');
-                const playIcon = playButton.querySelector('.play-icon');
-                const pauseIcon = playButton.querySelector('.pause-icon');
+                const playIcon = playButton ? playButton.querySelector('.play-icon') : null;
+                const pauseIcon = playButton ? playButton.querySelector('.pause-icon') : null;
 
                 audioPlayers[i] = {
                     audio: audio,
@@ -1854,21 +1854,21 @@
                         const prev = audioPlayers[currentPlaying];
                         prev.audio.pause();
                         prev.audio.currentTime = 0;
-                        prev.playIcon.style.display = 'block';
-                        prev.pauseIcon.style.display = 'none';
+                        if (prev.playIcon) prev.playIcon.style.display = 'block';
+                        if (prev.pauseIcon) prev.pauseIcon.style.display = 'none';
                         if (rafId) cancelAnimationFrame(rafId);
                     }
 
                     if (audio.paused) {
                         audio.play();
-                        playIcon.style.display = 'none';
-                        pauseIcon.style.display = 'block';
+                        if (playIcon) playIcon.style.display = 'none';
+                        if (pauseIcon) pauseIcon.style.display = 'block';
                         currentPlaying = i;
                         updateProgress();
                     } else {
                         audio.pause();
-                        playIcon.style.display = 'block';
-                        pauseIcon.style.display = 'none';
+                        if (playIcon) playIcon.style.display = 'block';
+                        if (pauseIcon) pauseIcon.style.display = 'none';
                         if (rafId) cancelAnimationFrame(rafId);
                         if (currentPlaying === i) currentPlaying = null;
                     }

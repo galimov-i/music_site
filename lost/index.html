@@ -1716,7 +1716,13 @@
                 if (currentPlaying) {
                     const player = audioPlayers[currentPlaying];
                     if (player && !player.audio.paused) {
+                        // #region agent log
+                        fetch('http://127.0.0.1:7243/ingest/bd8cf445-7def-4acd-a1f2-035e53d5a154',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'lost/index.html:1719',message:'updateProgress before calc',data:{currentPlaying,currentTime:player.audio.currentTime,duration:player.audio.duration,isNaN_duration:isNaN(player.audio.duration),isFinite_duration:isFinite(player.audio.duration)},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'A'})}).catch(()=>{});
+                        // #endregion
                         const progress = (player.audio.currentTime / player.audio.duration) * 100;
+                        // #region agent log
+                        fetch('http://127.0.0.1:7243/ingest/bd8cf445-7def-4acd-a1f2-035e53d5a154',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'lost/index.html:1720',message:'updateProgress after calc',data:{progress,isNaN_progress:isNaN(progress),isFinite_progress:isFinite(progress)},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'A'})}).catch(()=>{});
+                        // #endregion
                         player.progressBar.style.width = progress + '%';
                         player.currentTimeEl.textContent = formatTime(player.audio.currentTime);
                         rafId = requestAnimationFrame(updateProgress);
@@ -1732,8 +1738,8 @@
                     if (currentPlayer) {
                         currentPlayer.audio.pause();
                         currentPlayer.audio.currentTime = 0;
-                        currentPlayer.playIcon.style.display = 'block';
-                        currentPlayer.pauseIcon.style.display = 'none';
+                        if (currentPlayer.playIcon) currentPlayer.playIcon.style.display = 'block';
+                        if (currentPlayer.pauseIcon) currentPlayer.pauseIcon.style.display = 'none';
                         currentPlayer.progressBar.style.width = '0%';
                         currentPlayer.currentTimeEl.textContent = '0:00';
                     }
@@ -1742,9 +1748,20 @@
                     const nextPlayer = audioPlayers[nextTrack];
                     if (nextPlayer) {
                         nextPlayer.audio.currentTime = 0;
-                        nextPlayer.audio.play();
-                        nextPlayer.playIcon.style.display = 'none';
-                        nextPlayer.pauseIcon.style.display = 'block';
+                        // #region agent log
+                        fetch('http://127.0.0.1:7243/ingest/bd8cf445-7def-4acd-a1f2-035e53d5a154',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'lost/index.html:1745',message:'playNextTrack before play',data:{nextTrack,currentPlaying},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'C'})}).catch(()=>{});
+                        // #endregion
+                        const playPromise = nextPlayer.audio.play();
+                        playPromise.catch(function(error) {
+                            // #region agent log
+                            fetch('http://127.0.0.1:7243/ingest/bd8cf445-7def-4acd-a1f2-035e53d5a154',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'lost/index.html:1745',message:'playNextTrack play rejected',data:{nextTrack,error:error.message,errorName:error.name},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'C'})}).catch(()=>{});
+                            // #endregion
+                        });
+                        // #region agent log
+                        fetch('http://127.0.0.1:7243/ingest/bd8cf445-7def-4acd-a1f2-035e53d5a154',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'lost/index.html:1746',message:'playNextTrack after play',data:{nextTrack,currentPlaying},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'C'})}).catch(()=>{});
+                        // #endregion
+                        if (nextPlayer.playIcon) nextPlayer.playIcon.style.display = 'none';
+                        if (nextPlayer.pauseIcon) nextPlayer.pauseIcon.style.display = 'block';
                         currentPlaying = nextTrack;
                         updateProgress();
                     }
@@ -1757,6 +1774,9 @@
 
             function initPlayer(i) {
                 const audio = document.getElementById('audio-' + i);
+                // #region agent log
+                fetch('http://127.0.0.1:7243/ingest/bd8cf445-7def-4acd-a1f2-035e53d5a154',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'lost/index.html:1759',message:'initPlayer entry',data:{trackId:i,audioFound:!!audio},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'D'})}).catch(()=>{});
+                // #endregion
                 if (!audio) return;
 
                 const wrapper = audio.closest('.audio-player-wrapper');
@@ -1765,8 +1785,11 @@
                 const progressContainer = wrapper.querySelector('.audio-progress-container[data-audio="' + i + '"]');
                 const currentTimeEl = wrapper.querySelector('.current-time');
                 const totalTimeEl = wrapper.querySelector('.total-time');
-                const playIcon = playButton.querySelector('.play-icon');
-                const pauseIcon = playButton.querySelector('.pause-icon');
+                const playIcon = playButton ? playButton.querySelector('.play-icon') : null;
+                const pauseIcon = playButton ? playButton.querySelector('.pause-icon') : null;
+                // #region agent log
+                fetch('http://127.0.0.1:7243/ingest/bd8cf445-7def-4acd-a1f2-035e53d5a154',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'lost/index.html:1769',message:'initPlayer elements check',data:{trackId:i,playButton:!!playButton,progressBar:!!progressBar,progressContainer:!!progressContainer,currentTimeEl:!!currentTimeEl,totalTimeEl:!!totalTimeEl,playIcon:!!playIcon,pauseIcon:!!pauseIcon},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'D'})}).catch(()=>{});
+                // #endregion
 
                 audioPlayers[i] = {
                     audio: audio,
@@ -1784,25 +1807,39 @@
                 }, { once: true });
 
                 playButton.addEventListener('click', function() {
+                    // #region agent log
+                    fetch('http://127.0.0.1:7243/ingest/bd8cf445-7def-4acd-a1f2-035e53d5a154',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'lost/index.html:1786',message:'playButton click entry',data:{trackId:i,currentPlaying,audioPaused:audio.paused},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'E'})}).catch(()=>{});
+                    // #endregion
                     if (currentPlaying && currentPlaying !== i) {
                         const prev = audioPlayers[currentPlaying];
                         prev.audio.pause();
                         prev.audio.currentTime = 0;
-                        prev.playIcon.style.display = 'block';
-                        prev.pauseIcon.style.display = 'none';
+                        if (prev.playIcon) prev.playIcon.style.display = 'block';
+                        if (prev.pauseIcon) prev.pauseIcon.style.display = 'none';
                         if (rafId) cancelAnimationFrame(rafId);
                     }
 
                     if (audio.paused) {
-                        audio.play();
-                        playIcon.style.display = 'none';
-                        pauseIcon.style.display = 'block';
+                        // #region agent log
+                        fetch('http://127.0.0.1:7243/ingest/bd8cf445-7def-4acd-a1f2-035e53d5a154',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'lost/index.html:1797',message:'playButton click before play',data:{trackId:i,currentPlaying},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'C'})}).catch(()=>{});
+                        // #endregion
+                        const playPromise = audio.play();
+                        playPromise.catch(function(error) {
+                            // #region agent log
+                            fetch('http://127.0.0.1:7243/ingest/bd8cf445-7def-4acd-a1f2-035e53d5a154',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'lost/index.html:1797',message:'playButton click play rejected',data:{trackId:i,error:error.message,errorName:error.name},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'C'})}).catch(()=>{});
+                            // #endregion
+                        });
+                        if (playIcon) playIcon.style.display = 'none';
+                        if (pauseIcon) pauseIcon.style.display = 'block';
                         currentPlaying = i;
+                        // #region agent log
+                        fetch('http://127.0.0.1:7243/ingest/bd8cf445-7def-4acd-a1f2-035e53d5a154',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'lost/index.html:1800',message:'playButton click after play',data:{trackId:i,currentPlaying},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'E'})}).catch(()=>{});
+                        // #endregion
                         updateProgress();
                     } else {
                         audio.pause();
-                        playIcon.style.display = 'block';
-                        pauseIcon.style.display = 'none';
+                        if (playIcon) playIcon.style.display = 'block';
+                        if (pauseIcon) pauseIcon.style.display = 'none';
                         if (rafId) cancelAnimationFrame(rafId);
                         if (currentPlaying === i) currentPlaying = null;
                     }
@@ -1811,6 +1848,9 @@
                 progressContainer.addEventListener('click', function(e) {
                     const rect = progressContainer.getBoundingClientRect();
                     const percentage = (e.clientX - rect.left) / rect.width;
+                    // #region agent log
+                    fetch('http://127.0.0.1:7243/ingest/bd8cf445-7def-4acd-a1f2-035e53d5a154',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'lost/index.html:1814',message:'progressContainer click before set',data:{trackId:i,percentage,audioDuration:audio.duration,isNaN_duration:isNaN(audio.duration),isFinite_duration:isFinite(audio.duration)},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'B'})}).catch(()=>{});
+                    // #endregion
                     audio.currentTime = percentage * audio.duration;
                 });
 

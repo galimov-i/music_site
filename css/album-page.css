@@ -36,6 +36,201 @@
             overflow: hidden;
             animation: fadeInDown 0.8s ease-out;
             border-bottom: 1px solid var(--border-color);
+            transition: background 0.3s ease, border-color 0.3s ease;
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            width: 100%;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .theme-toggle {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            background: var(--secondary-bg);
+            border: 2px solid var(--border-color);
+            color: var(--text-color);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: var(--shadow);
+            z-index: 10;
+            position: relative;
+        }
+
+        .theme-toggle:hover {
+            background: var(--bg-color);
+            border-color: var(--primary-color);
+            box-shadow: var(--shadow-hover);
+            transform: scale(1.05);
+        }
+
+        .theme-icon {
+            width: 26px;
+            height: 26px;
+            transition: transform 0.3s ease;
+        }
+
+        .theme-toggle:hover .theme-icon {
+            transform: rotate(15deg);
+        }
+
+        [data-theme="light"] .header {
+            background: linear-gradient(135deg, rgba(2, 132, 199, 0.05) 0%, rgba(124, 58, 237, 0.05) 100%);
+            color: var(--text-color);
+        }
+
+        [data-theme="light"] .container {
+            background: rgba(255, 255, 255, 1);
+            border-color: rgba(2, 132, 199, 0.3);
+        }
+
+        [data-theme="light"] .content {
+            background: rgba(255, 255, 255, 1);
+        }
+
+        [data-theme="light"] .artist-name {
+            color: #1e293b;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        [data-theme="light"] .artist-name::after {
+            background: rgba(2, 132, 199, 0.4);
+        }
+
+        [data-theme="light"] .track-name {
+            color: #475569;
+            text-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
+        }
+
+        [data-theme="light"] .album-info {
+            background: linear-gradient(135deg, rgba(2, 132, 199, 0.08) 0%, rgba(124, 58, 237, 0.08) 100%);
+            border-color: rgba(2, 132, 199, 0.2);
+        }
+
+        [data-theme="light"] .info-label {
+            color: #475569;
+            font-weight: 600;
+        }
+
+        [data-theme="light"] .description {
+            color: #334155;
+            background: linear-gradient(135deg, rgba(2, 132, 199, 0.05) 0%, rgba(124, 58, 237, 0.05) 100%);
+            border-left-color: var(--primary-color);
+        }
+
+        [data-theme="light"] .link-button {
+            background: linear-gradient(135deg, rgba(2, 132, 199, 0.1) 0%, rgba(124, 58, 237, 0.1) 100%);
+            border-color: rgba(2, 132, 199, 0.3);
+            color: var(--primary-color);
+        }
+
+        [data-theme="light"] .link-button:hover {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: #ffffff;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 20px rgba(2, 132, 199, 0.5);
+        }
+
+        [data-theme="light"] .donate-block {
+            background: rgba(5, 150, 105, 0.08);
+            border-color: rgba(5, 150, 105, 0.25);
+            box-shadow: 0 0 20px rgba(5, 150, 105, 0.15);
+        }
+
+        [data-theme="light"] .donate-title {
+            color: #1e293b;
+        }
+
+        [data-theme="light"] .donate-text {
+            color: #475569;
+        }
+
+        [data-theme="light"] .footer {
+            background: rgba(255, 255, 255, 0.95);
+            color: rgba(15, 23, 42, 0.7);
+            border-color: var(--border-color);
+        }
+
+        [data-theme="light"] .footer a {
+            color: var(--primary-color);
+        }
+
+        [data-theme="light"] .footer a:hover {
+            color: var(--hover-color);
+        }
+
+        [data-theme="light"] .social-link {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            border-color: rgba(2, 132, 199, 0.3);
+        }
+
+        [data-theme="light"] .social-link:hover {
+            box-shadow: 0 0 20px rgba(2, 132, 199, 0.5);
+        }
+
+        [data-theme="light"] .section-title {
+            color: #1e293b;
+        }
+
+        [data-theme="light"] .feature-card {
+            background: rgba(255, 255, 255, 0.8);
+            border-color: rgba(2, 132, 199, 0.2);
+        }
+
+        [data-theme="light"] .feature-text {
+            color: #334155;
+        }
+
+        [data-theme="light"] .audio-time {
+            color: #475569;
+        }
+
+        [data-theme="light"] .audio-track-info {
+            color: #1e293b;
+        }
+
+        [data-theme="light"] .audio-player-wrapper {
+            background: rgba(255, 255, 255, 0.9);
+            border-color: rgba(2, 132, 199, 0.3);
+        }
+
+        [data-theme="light"] .audio-player-wrapper:hover {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 20px rgba(2, 132, 199, 0.3);
+        }
+
+        [data-theme="light"] .feature-title {
+            color: #1e293b;
+        }
+
+        [data-theme="light"] .footer-home-button {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        [data-theme="light"] .footer-home-button:hover {
+            background: var(--primary-color);
+            color: #ffffff;
+        }
+
+        [data-theme="light"] .footer-donate-button {
+            border-color: var(--accent-color);
+            color: var(--accent-color);
+        }
+
+        [data-theme="light"] .footer-donate-button:hover {
+            background: var(--accent-color);
+            color: #ffffff;
         }
 
         .header::before {

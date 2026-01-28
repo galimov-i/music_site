@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://your-domain.com/sitemap.xml
+
+# Disallow crawling of audio files and images (they are in .gitignore anyway)
+Disallow: /*.wav
+Disallow: /*.jpg
+Disallow: /*.jpeg
+Disallow: /*.png
+Disallow: /*.gif
+Disallow: /*.webp
+Disallow: /*.svg

@@ -39,64 +39,38 @@ music_site/
 │
 ├── neural-bachata/           # Альбом "Neural Bachata"
 │   ├── index.html
-│   ├── Neural-Bachata.jpg
-│   ├── En la Esquina.wav
-│   ├── La Tienda de Vinilos.wav
-│   ├── Telegrama.wav
-│   ├── Dos Extraños.wav
-│   ├── Bachata Dominicana.wav
-│   ├── Cenizas y Miel.wav
+│   ├── *.jpg, *.png          # Обложка альбома
+│   ├── *.wav                 # Аудио файлы
 │   └── .gitignore
 │
 ├── cyber-kolhoz/             # Альбом "CYBER-KOLHOZ 2077"
 │   ├── index.html
-│   ├── cyber-kolhoz.png
-│   ├── 3D Пирожки.wav
-│   ├── Telegrama.wav
-│   ├── Кибер-Баня.wav
-│   ├── Кибер-колхоз.wav
-│   ├── Кибер-Присядка.wav
-│   ├── Лесной Рейв.wav
+│   ├── *.jpg, *.png          # Обложка альбома
+│   ├── *.wav                 # Аудио файлы
 │   └── .gitignore
 │
 ├── rus-hiphop/               # Альбом "Русский народный Хип-хоп"
 │   ├── index.html
-│   ├── 167b3569-61a7-4101-85b7-1081c12a6aa6.png
-│   ├── Версаль Трэп.wav
-│   ├── Дух Бетона.wav
-│   ├── Русская Тоска.wav
+│   ├── *.jpg, *.png          # Обложка альбома
+│   ├── *.wav                 # Аудио файлы
 │   └── .gitignore
 │
 ├── lost/                     # Альбом "Потерянный ребёнок"
 │   ├── index.html
-│   ├── 9494a8be-6b0d-4a21-86bd-3c2298979a4f (1).png
-│   ├── Геноцид чувств.wav
-│   ├── Печальная девочка.wav
-│   ├── Сон.wav
-│   ├── Тёмные аллеи.wav
-│   ├── Чёрное солнце.wav
+│   ├── *.jpg, *.png          # Обложка альбома
+│   ├── *.wav                 # Аудио файлы
 │   └── .gitignore
 │
 ├── catharsis/                # Альбом "Catharsis"
 │   ├── index.html
-│   ├── 4e94ea86-d169-48f3-b943-2c158146d517.png
-│   ├── Catharsis Storm.wav
-│   ├── Veins of Rebellion.wav
-│   ├── Fractured Echoes.wav
-│   ├── Paper Airplanes.wav
-│   ├── Glass House Waltz.wav
-│   ├── Ocean's Weight.wav
-│   ├── Neon Decay.wav
+│   ├── *.jpg, *.png          # Обложка альбома
+│   ├── *.wav                 # Аудио файлы
 │   └── .gitignore
 │
 └── shadows/                  # Альбом "Rise from the Shadows"
     ├── index.html
-    ├── 3d1a7209-220b-434c-a455-96a6a975cb44.png
-    ├── Digital Dash.wav
-    ├── Midnight Ambition.wav
-    ├── Neon In My Palm.wav
-    ├── Built Crowds.wav
-    ├── Chaos Throne.wav
+    ├── *.jpg, *.png          # Обложка альбома
+    ├── *.wav                 # Аудио файлы
     └── .gitignore
 ```
 

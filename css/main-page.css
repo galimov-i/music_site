@@ -23,20 +23,7 @@
     --neon-glow: 0 0 20px rgba(0, 245, 255, 0.8), 0 0 40px rgba(0, 245, 255, 0.4);
 }
 
-/* Светлая тема */
-[data-theme="light"] {
-    --primary-color: #0284c7;
-    --secondary-color: #7c3aed;
-    --accent-color: #059669;
-    --text-color: #1e293b;
-    --bg-color: rgba(255, 255, 255, 1);
-    --secondary-bg: rgba(248, 250, 252, 1);
-    --border-color: rgba(2, 132, 199, 0.4);
-    --hover-color: #0369a1;
-    --shadow: 0 8px 32px rgba(15, 23, 42, 0.12);
-    --shadow-hover: 0 0 30px rgba(2, 132, 199, 0.5);
-    --neon-glow: 0 0 20px rgba(2, 132, 199, 0.4), 0 0 40px rgba(2, 132, 199, 0.25);
-}
+/* Стили тем вынесены в themes.css */
 
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
@@ -58,6 +45,12 @@ body {
     overflow-x: hidden;
 }
 
+/* Переопределение фона для монохромной темы */
+[data-theme="monochrome"] body {
+    background: #000000 !important;
+    background-image: none !important;
+}
+
 body::before {
     content: '';
     position: fixed;
@@ -73,11 +66,14 @@ body::before {
     transition: background 0.3s ease;
 }
 
-[data-theme="light"] body::before {
+/* Переопределение body::before для монохромной темы */
+[data-theme="monochrome"] body::before {
     background: 
-        repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(2, 132, 199, 0.01) 2px, rgba(2, 132, 199, 0.01) 4px),
-        repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(124, 58, 237, 0.01) 2px, rgba(124, 58, 237, 0.01) 4px);
+        repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255, 255, 255, 0.02) 2px, rgba(255, 255, 255, 0.02) 4px),
+        repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(255, 255, 255, 0.02) 2px, rgba(255, 255, 255, 0.02) 4px) !important;
 }
+
+/* Стили тем вынесены в themes.css */
 
 .container {
     max-width: 800px;

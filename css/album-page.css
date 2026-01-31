@@ -233,6 +233,8 @@
             color: #ffffff;
         }
 
+        /* Стили тем вынесены в themes.css */
+
         .header::before {
             content: '';
             position: absolute;

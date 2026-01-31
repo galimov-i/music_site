@@ -1,0 +1,312 @@
+/**
+ * Стили тем оформления
+ * Темная, светлая и черно-белая темы
+ */
+
+/* ============================================
+   CSS ПЕРЕМЕННЫЕ ДЛЯ ТЕМ
+   ============================================ */
+
+/* Светлая тема */
+[data-theme="light"] {
+    --primary-color: #0284c7;
+    --secondary-color: #7c3aed;
+    --accent-color: #059669;
+    --text-color: #1e293b;
+    --bg-color: rgba(255, 255, 255, 1);
+    --secondary-bg: rgba(248, 250, 252, 1);
+    --border-color: rgba(2, 132, 199, 0.4);
+    --hover-color: #0369a1;
+    --shadow: 0 8px 32px rgba(15, 23, 42, 0.12);
+    --shadow-hover: 0 0 30px rgba(2, 132, 199, 0.5);
+    --neon-glow: 0 0 20px rgba(2, 132, 199, 0.4), 0 0 40px rgba(2, 132, 199, 0.25);
+}
+
+/* Черно-белая тема */
+[data-theme="monochrome"] {
+    --primary-color: #ffffff;
+    --secondary-color: #808080;
+    --accent-color: #ffffff;
+    --text-color: #ffffff;
+    --bg-color: rgba(0, 0, 0, 0.95);
+    --secondary-bg: rgba(20, 20, 20, 0.8);
+    --border-color: rgba(255, 255, 255, 0.3);
+    --hover-color: #ffffff;
+    --shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+    --shadow-hover: 0 0 30px rgba(255, 255, 255, 0.5);
+    --neon-glow: 0 0 20px rgba(255, 255, 255, 0.6), 0 0 40px rgba(255, 255, 255, 0.3);
+}
+
+/* ============================================
+   СТИЛИ ДЛЯ BODY
+   ============================================ */
+
+[data-theme="light"] body::before {
+    background: 
+        repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(2, 132, 199, 0.01) 2px, rgba(2, 132, 199, 0.01) 4px),
+        repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(124, 58, 237, 0.01) 2px, rgba(124, 58, 237, 0.01) 4px);
+}
+
+[data-theme="monochrome"] body {
+    background: #000000 !important;
+    background-image: none !important;
+}
+
+[data-theme="monochrome"] body::before {
+    background: 
+        repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255, 255, 255, 0.02) 2px, rgba(255, 255, 255, 0.02) 4px),
+        repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(255, 255, 255, 0.02) 2px, rgba(255, 255, 255, 0.02) 4px) !important;
+}
+
+/* ============================================
+   ЧЕРНО-БЕЛЫЕ ФИЛЬТРЫ ДЛЯ МОНОХРОМНОЙ ТЕМЫ
+   ============================================ */
+
+[data-theme="monochrome"] img,
+[data-theme="monochrome"] svg:not(.theme-icon):not(.theme-icon *) {
+    filter: grayscale(100%);
+}
+
+[data-theme="monochrome"] .theme-icon,
+[data-theme="monochrome"] .theme-icon * {
+    filter: none !important;
+}
+
+/* Применение grayscale ко всему body и его содержимому, кроме иконки темы */
+[data-theme="monochrome"] body {
+    filter: grayscale(100%);
+}
+
+[data-theme="monochrome"] .theme-icon,
+[data-theme="monochrome"] .theme-icon * {
+    filter: none !important;
+}
+
+/* ============================================
+   СТИЛИ ДЛЯ ГЛАВНОЙ СТРАНИЦЫ
+   ============================================ */
+
+[data-theme="light"] .header {
+    background: linear-gradient(135deg, rgba(2, 132, 199, 0.05) 0%, rgba(124, 58, 237, 0.05) 100%);
+    color: var(--text-color);
+}
+
+[data-theme="light"] .artist-name {
+    color: #1e293b;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="light"] .subtitle {
+    color: #64748b;
+    text-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="light"] .content {
+    background: rgba(255, 255, 255, 0.98);
+}
+
+[data-theme="light"] .album-card {
+    background: rgba(255, 255, 255, 0.95);
+    border-color: rgba(2, 132, 199, 0.2);
+    box-shadow: 0 4px 20px rgba(15, 23, 42, 0.08);
+}
+
+[data-theme="light"] .album-card:hover {
+    background: rgba(255, 255, 255, 1);
+    border-color: var(--primary-color);
+    box-shadow: 0 8px 40px rgba(2, 132, 199, 0.2);
+    transform: translateY(-4px);
+}
+
+[data-theme="light"] .album-image-wrapper {
+    border-color: rgba(2, 132, 199, 0.2);
+}
+
+[data-theme="light"] .album-title {
+    color: #1e293b;
+}
+
+[data-theme="light"] .album-year {
+    color: #64748b;
+}
+
+[data-theme="light"] .album-description {
+    color: #475569;
+}
+
+[data-theme="light"] .album-card:hover .album-link {
+    color: var(--primary-color);
+}
+
+[data-theme="light"] .donate-block {
+    background: rgba(5, 150, 105, 0.08);
+    border-color: rgba(5, 150, 105, 0.25);
+    box-shadow: 0 0 20px rgba(5, 150, 105, 0.15);
+}
+
+[data-theme="light"] .donate-title {
+    color: #1e293b;
+}
+
+[data-theme="light"] .donate-text {
+    color: #475569;
+}
+
+[data-theme="light"] .footer {
+    background: rgba(255, 255, 255, 0.95);
+    color: rgba(15, 23, 42, 0.7);
+    border-color: var(--border-color);
+}
+
+/* ============================================
+   СТИЛИ ДЛЯ СТРАНИЦ АЛЬБОМОВ
+   ============================================ */
+
+[data-theme="light"] .header {
+    background: linear-gradient(135deg, rgba(2, 132, 199, 0.05) 0%, rgba(124, 58, 237, 0.05) 100%);
+    color: var(--text-color);
+}
+
+[data-theme="light"] .container {
+    background: rgba(255, 255, 255, 1);
+    border-color: rgba(2, 132, 199, 0.3);
+}
+
+[data-theme="light"] .content {
+    background: rgba(255, 255, 255, 1);
+}
+
+[data-theme="light"] .artist-name {
+    color: #1e293b;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="light"] .artist-name::after {
+    background: rgba(2, 132, 199, 0.4);
+}
+
+[data-theme="light"] .track-name {
+    color: #475569;
+    text-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="light"] .album-info {
+    background: linear-gradient(135deg, rgba(2, 132, 199, 0.08) 0%, rgba(124, 58, 237, 0.08) 100%);
+    border-color: rgba(2, 132, 199, 0.2);
+}
+
+[data-theme="light"] .info-label {
+    color: #475569;
+    font-weight: 600;
+}
+
+[data-theme="light"] .description {
+    color: #334155;
+    background: linear-gradient(135deg, rgba(2, 132, 199, 0.05) 0%, rgba(124, 58, 237, 0.05) 100%);
+    border-left-color: var(--primary-color);
+}
+
+[data-theme="light"] .link-button {
+    background: linear-gradient(135deg, rgba(2, 132, 199, 0.1) 0%, rgba(124, 58, 237, 0.1) 100%);
+    border-color: rgba(2, 132, 199, 0.3);
+    color: var(--primary-color);
+}
+
+[data-theme="light"] .link-button:hover {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: #ffffff;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 20px rgba(2, 132, 199, 0.5);
+}
+
+[data-theme="light"] .donate-block {
+    background: rgba(5, 150, 105, 0.08);
+    border-color: rgba(5, 150, 105, 0.25);
+    box-shadow: 0 0 20px rgba(5, 150, 105, 0.15);
+}
+
+[data-theme="light"] .donate-title {
+    color: #1e293b;
+}
+
+[data-theme="light"] .donate-text {
+    color: #475569;
+}
+
+[data-theme="light"] .footer {
+    background: rgba(255, 255, 255, 0.95);
+    color: rgba(15, 23, 42, 0.7);
+    border-color: var(--border-color);
+}
+
+[data-theme="light"] .footer a {
+    color: var(--primary-color);
+}
+
+[data-theme="light"] .footer a:hover {
+    color: var(--hover-color);
+}
+
+[data-theme="light"] .social-link {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    border-color: rgba(2, 132, 199, 0.3);
+}
+
+[data-theme="light"] .social-link:hover {
+    box-shadow: 0 0 20px rgba(2, 132, 199, 0.5);
+}
+
+[data-theme="light"] .section-title {
+    color: #1e293b;
+}
+
+[data-theme="light"] .feature-card {
+    background: rgba(255, 255, 255, 0.8);
+    border-color: rgba(2, 132, 199, 0.2);
+}
+
+[data-theme="light"] .feature-text {
+    color: #334155;
+}
+
+[data-theme="light"] .audio-time {
+    color: #475569;
+}
+
+[data-theme="light"] .audio-track-info {
+    color: #1e293b;
+}
+
+[data-theme="light"] .audio-player-wrapper {
+    background: rgba(255, 255, 255, 0.9);
+    border-color: rgba(2, 132, 199, 0.3);
+}
+
+[data-theme="light"] .audio-player-wrapper:hover {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 20px rgba(2, 132, 199, 0.3);
+}
+
+[data-theme="light"] .feature-title {
+    color: #1e293b;
+}
+
+[data-theme="light"] .footer-home-button {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+[data-theme="light"] .footer-home-button:hover {
+    background: var(--primary-color);
+    color: #ffffff;
+}
+
+[data-theme="light"] .footer-donate-button {
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+}
+
+[data-theme="light"] .footer-donate-button:hover {
+    background: var(--accent-color);
+    color: #ffffff;
+}

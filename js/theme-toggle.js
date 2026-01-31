@@ -1,5 +1,5 @@
 /**
- * Переключатель темы (темная/светлая)
+ * Переключатель темы (темная/светлая/черно-белая)
  * Сохраняет выбор пользователя в localStorage
  */
 
@@ -10,42 +10,56 @@
         const themeToggle = document.getElementById('theme-toggle');
         const sunIcon = themeToggle ? themeToggle.querySelector('.sun-icon') : null;
         const moonIcon = themeToggle ? themeToggle.querySelector('.moon-icon') : null;
+        const monochromeIcon = themeToggle ? themeToggle.querySelector('.monochrome-icon') : null;
         
         // Проверяем сохраненную тему или используем темную по умолчанию
         const savedTheme = localStorage.getItem('theme');
         const html = document.documentElement;
         
         // Применяем сохраненную тему или темную по умолчанию
-        if (savedTheme === 'light') {
-            html.setAttribute('data-theme', 'light');
-            if (sunIcon) sunIcon.style.display = 'block';
-            if (moonIcon) moonIcon.style.display = 'none';
-        } else {
-            // По умолчанию темная тема
-            html.setAttribute('data-theme', 'dark');
-            if (sunIcon) sunIcon.style.display = 'none';
-            if (moonIcon) moonIcon.style.display = 'block';
-        }
+        const themeToApply = savedTheme || 'dark';
+        html.setAttribute('data-theme', themeToApply);
+        updateIcons(themeToApply, sunIcon, moonIcon, monochromeIcon);
         
         // Обработчик клика на кнопку переключения темы
         if (themeToggle) {
             themeToggle.addEventListener('click', function() {
                 const currentTheme = html.getAttribute('data-theme') || 'dark';
-                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                let newTheme;
+                
+                // Циклическое переключение: dark -> light -> monochrome -> dark
+                if (currentTheme === 'dark') {
+                    newTheme = 'light';
+                } else if (currentTheme === 'light') {
+                    newTheme = 'monochrome';
+                } else {
+                    newTheme = 'dark';
+                }
                 
                 // Применяем новую тему
                 html.setAttribute('data-theme', newTheme);
                 localStorage.setItem('theme', newTheme);
                 
                 // Обновляем иконки
-                if (newTheme === 'light') {
-                    if (sunIcon) sunIcon.style.display = 'block';
-                    if (moonIcon) moonIcon.style.display = 'none';
-                } else {
-                    if (sunIcon) sunIcon.style.display = 'none';
-                    if (moonIcon) moonIcon.style.display = 'block';
-                }
+                updateIcons(newTheme, sunIcon, moonIcon, monochromeIcon);
             });
+        }
+    }
+    
+    function updateIcons(theme, sunIcon, moonIcon, monochromeIcon) {
+        // Скрываем все иконки
+        if (sunIcon) sunIcon.style.display = 'none';
+        if (moonIcon) moonIcon.style.display = 'none';
+        if (monochromeIcon) monochromeIcon.style.display = 'none';
+        
+        // Показываем нужную иконку
+        if (theme === 'light' && sunIcon) {
+            sunIcon.style.display = 'block';
+        } else if (theme === 'monochrome' && monochromeIcon) {
+            monochromeIcon.style.display = 'block';
+        } else if (moonIcon) {
+            // По умолчанию показываем луну для темной темы
+            moonIcon.style.display = 'block';
         }
     }
     

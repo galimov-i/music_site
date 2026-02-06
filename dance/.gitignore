@@ -1,0 +1,21 @@
+# Media files
+*.wav
+*.mp3
+*.flac
+*.ogg
+*.m4a
+*.jpg
+*.jpeg
+*.png
+*.gif
+*.webp
+*.svg
+*.MOV
+*.mp4
+*.avi
+*.mkv
+*.webm
+
+# Configuration files
+config.js
+.env

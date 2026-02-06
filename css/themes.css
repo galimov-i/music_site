@@ -82,6 +82,12 @@
     filter: none !important;
 }
 
+/* Исключение для кнопок связи из grayscale фильтра */
+[data-theme="monochrome"] .contact-btn,
+[data-theme="monochrome"] .contact-btn * {
+    filter: none !important;
+}
+
 /* ============================================
    СТИЛИ ДЛЯ ГЛАВНОЙ СТРАНИЦЫ
    ============================================ */

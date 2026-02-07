@@ -363,6 +363,27 @@
             border-radius: 50%;
         }
         
+        /* Стили для темной темы - белые кнопки аудио-плеера */
+        /* Применяем инверсию только к самому элементу audio */
+        [data-theme="dark"] .testimonial-audio audio {
+            filter: invert(1) hue-rotate(180deg);
+        }
+        
+        /* Убираем фильтр с псевдоэлементов, чтобы избежать двойной инверсии */
+        [data-theme="dark"] .testimonial-audio audio::-webkit-media-controls-panel,
+        [data-theme="dark"] .testimonial-audio audio::-webkit-media-controls-enclosure,
+        [data-theme="dark"] .testimonial-audio audio::-webkit-media-controls-play-button,
+        [data-theme="dark"] .testimonial-audio audio::-webkit-media-controls-pause-button,
+        [data-theme="dark"] .testimonial-audio audio::-webkit-media-controls-mute-button,
+        [data-theme="dark"] .testimonial-audio audio::-webkit-media-controls-fullscreen-button,
+        [data-theme="dark"] .testimonial-audio audio::-webkit-media-controls-overlay-play-button,
+        [data-theme="dark"] .testimonial-audio audio::-webkit-media-controls-current-time-display,
+        [data-theme="dark"] .testimonial-audio audio::-webkit-media-controls-time-remaining-display,
+        [data-theme="dark"] .testimonial-audio audio::-webkit-media-controls-timeline,
+        [data-theme="dark"] .testimonial-audio audio::-webkit-media-controls-volume-slider {
+            filter: none !important;
+        }
+        
         .testimonial-audio-label {
             font-size: 0.9rem;
             color: var(--text-color);
@@ -1387,11 +1408,10 @@
                         <div class="testimonial-audio">
                             <span class="testimonial-audio-label">🎵 Аудиоотзыв:</span>
                             <audio id="feedback-audio" controls preload="metadata" playsinline webkit-playsinline aria-label="Аудиоотзыв от Анны, Мастера Спорта по плаванию">
+                                <source src="feedback.m4a" type="audio/mp4">
                                 <source src="feedback.mp3" type="audio/mpeg">
                                 <source src="feedback.wav" type="audio/wav">
-                                <source src="feedback.m4a" type="audio/mp4">
                                 <source src="feedback.ogg" type="audio/ogg">
-                                <source src="feedback" type="audio/mpeg">
                                 Ваш браузер не поддерживает воспроизведение аудио.
                             </audio>
                         </div>
@@ -1855,13 +1875,12 @@
                     feedbackAudio.setAttribute('webkit-playsinline', '');
                 }
                 
-                // Список возможных форматов файла в порядке приоритета
+                // Список возможных форматов файла в порядке приоритета (m4a первый)
                 const audioFormats = [
+                    { src: 'feedback.m4a', type: 'audio/mp4' },
                     { src: 'feedback.mp3', type: 'audio/mpeg' },
                     { src: 'feedback.wav', type: 'audio/wav' },
-                    { src: 'feedback.m4a', type: 'audio/mp4' },
-                    { src: 'feedback.ogg', type: 'audio/ogg' },
-                    { src: 'feedback', type: 'audio/mpeg' }
+                    { src: 'feedback.ogg', type: 'audio/ogg' }
                 ];
                 
                 let currentIndex = 0;

@@ -92,6 +92,63 @@
             margin-bottom: 30px;
         }
         
+        /* About Me Section */
+        .about-me-block {
+            background: var(--secondary-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 60px auto;
+            max-width: 900px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+        }
+        
+        .about-me-block:hover {
+            box-shadow: var(--shadow-hover);
+            border-color: var(--primary-color);
+        }
+        
+        .about-me-block h3 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            text-align: center;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .about-me-text {
+            color: var(--text-color);
+            opacity: 0.9;
+            line-height: 1.8;
+            font-size: 1.1rem;
+            text-align: center;
+            max-width: 700px;
+            margin-bottom: 30px;
+        }
+        
+        .about-me-image {
+            width: 100%;
+            max-width: 400px;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .about-me-image:hover {
+            transform: scale(1.02);
+            box-shadow: 0 12px 35px rgba(0, 245, 255, 0.3);
+        }
+        
         .dance-hero .cta-button,
         .cta-button {
             display: inline-block;
@@ -417,6 +474,221 @@
             font-size: 1.05rem;
         }
         
+        /* Teacher reasons block with images */
+        .teacher-reasons-block {
+            background: var(--secondary-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 60px 0;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .teacher-reasons-block h3 {
+            font-size: 2rem;
+            margin-bottom: 40px;
+            text-align: center;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .teacher-reasons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .teacher-reason-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-color);
+            border-radius: 15px;
+            padding: 25px;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .teacher-reason-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--primary-color);
+            background: rgba(255, 255, 255, 0.05);
+        }
+        
+        .teacher-reason-card .reason-image {
+            width: 100%;
+            max-width: 300px;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .teacher-reason-card:hover .reason-image {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(0, 245, 255, 0.3);
+        }
+        
+        /* Image Modal/Lightbox */
+        .image-modal {
+            display: none;
+            position: fixed;
+            z-index: 10000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+            animation: fadeIn 0.3s ease;
+        }
+        
+        .image-modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .image-modal-content {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+            animation: zoomIn 0.3s ease;
+            display: block;
+            margin: auto;
+            border: 3px solid rgba(255, 255, 255, 0.8);
+            padding: 15px;
+            background: rgba(20, 20, 20, 0.3);
+        }
+        
+        .image-modal-close {
+            position: absolute;
+            top: 30px;
+            right: 40px;
+            color: var(--text-color);
+            font-size: 3rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10001;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border-color);
+        }
+        
+        .image-modal-close:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: rotate(90deg);
+            color: var(--primary-color);
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        @keyframes zoomIn {
+            from {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+        
+        /* Стили для монохромной темы - модальное окно */
+        [data-theme="monochrome"] .image-modal {
+            background-color: rgba(0, 0, 0, 0.98) !important;
+            filter: none !important; /* Убираем grayscale фильтр с модального окна */
+            backdrop-filter: blur(10px) !important;
+        }
+        
+        /* Убираем grayscale со всех элементов внутри модального окна */
+        [data-theme="monochrome"] .image-modal *,
+        [data-theme="monochrome"] .image-modal *::before,
+        [data-theme="monochrome"] .image-modal *::after {
+            filter: none !important;
+        }
+        
+        /* Стили для светлой темы - модальное окно */
+        [data-theme="light"] .image-modal-content {
+            border: 3px solid rgba(2, 132, 199, 0.9) !important;
+            box-shadow: 0 20px 60px rgba(2, 132, 199, 0.4), 0 0 0 1px rgba(2, 132, 199, 0.2) !important;
+            background: rgba(255, 255, 255, 0.95) !important;
+        }
+        
+        /* Стили для темной темы - модальное окно */
+        [data-theme="dark"] .image-modal-content {
+            border: 3px solid rgba(255, 255, 255, 0.9) !important;
+            box-shadow: 0 20px 60px rgba(0, 245, 255, 0.4), 0 0 0 1px rgba(0, 245, 255, 0.2) !important;
+            background: rgba(20, 20, 20, 0.4) !important;
+        }
+        
+        [data-theme="monochrome"] .image-modal-content {
+            filter: none !important; /* Полностью убираем все фильтры */
+            border: 3px solid rgba(255, 255, 255, 0.8) !important;
+            box-shadow: 0 20px 60px rgba(255, 255, 255, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.3) !important;
+            background: rgba(30, 30, 30, 0.8) !important; /* Более светлый фон для лучшей видимости */
+            padding: 15px !important;
+            opacity: 1 !important;
+            visibility: visible !important;
+            display: block !important;
+        }
+        
+        [data-theme="monochrome"] .image-modal-close {
+            color: #ffffff !important;
+            background: rgba(255, 255, 255, 0.4) !important;
+            border: 2px solid rgba(255, 255, 255, 0.8) !important;
+            filter: none !important;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8) !important;
+        }
+        
+        [data-theme="monochrome"] .image-modal-close:hover {
+            background: rgba(255, 255, 255, 0.6) !important;
+            color: #ffffff !important;
+            border-color: rgba(255, 255, 255, 1) !important;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.6) !important;
+        }
+        
+        .teacher-reason-card .reason-number {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        .teacher-reason-card .reason-text {
+            color: var(--text-color);
+            opacity: 0.9;
+            line-height: 1.7;
+            font-size: 1.05rem;
+        }
+        
         /* Video section */
         .video-section {
             margin: 60px 0;
@@ -498,6 +770,61 @@
                 margin: 30px 15px;
             }
             
+            .teacher-reasons-block {
+                padding: 25px 20px;
+                margin: 30px 15px;
+            }
+            
+            .teacher-reasons-block h3 {
+                font-size: 1.6rem;
+                margin-bottom: 30px;
+            }
+            
+            .teacher-reasons-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+            
+            .teacher-reason-card {
+                padding: 20px;
+            }
+            
+            .teacher-reason-card .reason-image {
+                height: 200px;
+                margin-bottom: 15px;
+            }
+            
+            .teacher-reason-card .reason-number {
+                font-size: 1.2rem;
+                margin-bottom: 12px;
+            }
+            
+            .teacher-reason-card .reason-text {
+                font-size: 1rem;
+            }
+            
+            /* Адаптация блока "Обо мне" для мобильных */
+            .about-me-block {
+                padding: 25px 20px;
+                margin: 30px 15px;
+            }
+            
+            .about-me-block h3 {
+                font-size: 1.6rem;
+                margin-bottom: 25px;
+            }
+            
+            .about-me-text {
+                font-size: 1rem;
+                text-align: center;
+                margin-bottom: 25px;
+            }
+            
+            .about-me-image {
+                max-width: 100%;
+                height: 350px;
+            }
+            
             .style-card,
             .pricing-card,
             .testimonials-grid .testimonial-card {
@@ -572,6 +899,20 @@
             
             .stat-item .number {
                 font-size: 2.5rem;
+            }
+            
+            /* Адаптация модального окна для мобильных */
+            .image-modal-content {
+                max-width: 95%;
+                max-height: 85%;
+            }
+            
+            .image-modal-close {
+                top: 15px;
+                right: 20px;
+                font-size: 2.5rem;
+                width: 45px;
+                height: 45px;
             }
         }
         
@@ -763,11 +1104,11 @@
             <!-- Hero Section -->
             <section class="dance-hero">
                 <h1>✨ Уроки по бачате/сальсе/кизомбе</h1>
-                <p class="subtitle">Танцуйте уверенно уже через месяц</p>
+                <p class="subtitle">Танцуйте уверенно уже через месяц!</p>
                 <p style="color: var(--text-color); opacity: 0.8; margin-bottom: 30px; max-width: 800px; margin-left: auto; margin-right: auto;">
                     Индивидуальные уроки бачаты, сальсы и кизомбы для начинающих. Занимайтесь в комфортной обстановке в центре Москвы.
                 </p>
-                <button class="cta-button" onclick="document.getElementById('contacts').scrollIntoView({behavior: 'smooth'})" aria-label="Записаться на пробное индивидуальное занятие за 1900 рублей">Пробное индивидуальное занятие - 1900₽ (постоплата)</button>
+                <button class="cta-button" onclick="scrollToContactForm()" aria-label="Записаться на пробное индивидуальное занятие за 1900 рублей">Пробное индивидуальное занятие - 1900₽ (постоплата)</button>
                 
                 <div class="reasons-block">
                     <h3>4 причины записаться:</h3>
@@ -791,13 +1132,51 @@
                     </ul>
                 </div>
                 <div style="text-align: center; margin-top: 30px;">
-                    <button class="cta-button" onclick="document.getElementById('contacts').scrollIntoView({behavior: 'smooth'})" aria-label="Записаться">Записаться</button>
+                    <button class="cta-button" onclick="scrollToContactForm()" aria-label="Записаться">Записаться</button>
+                </div>
+            </section>
+
+            <!-- About Me Section -->
+            <section class="dance-section">
+                <div class="about-me-block">
+                    <h3>Обо мне:</h3>
+                    <div class="about-me-text">
+                        <p>Меня зовут Ильшат. Пришёл в танцы во взрослом осознанном возрасте. Постепенно 4 часа тренировок в неделю превратились в 14. Личный рекорд - 40 дней занятий подряд без выходных. В какой-то момент захотел передать свой опыт окружающим.</p>
+                    </div>
+                    <img src="me.jpg" alt="Обо мне" class="about-me-image" loading="lazy">
+                </div>
+            </section>
+
+            <!-- Teacher Reasons Section -->
+            <section class="dance-section">
+                <div class="teacher-reasons-block">
+                    <h3>Почему стоит учиться именно у меня:</h3>
+                    <div class="teacher-reasons-grid">
+                        <div class="teacher-reason-card">
+                            <img src="jj.jpg" alt="Призер соревнований по Бачате и Доминиканской бачате" class="reason-image" loading="lazy">
+                            <div class="reason-number">1.</div>
+                            <div class="reason-text">Призер различных соревнований по Бачате и Доминиканской бачате</div>
+                        </div>
+                        <div class="teacher-reason-card">
+                            <img src="hastl.jpg" alt="Изучение различных танцевальных стилей" class="reason-image" loading="lazy">
+                            <div class="reason-number">2.</div>
+                            <div class="reason-text">Кроме бачаты, сальсы и кизомбы постоянно изучаю и другие стили (аргентинское танго, меренге, хастл, буги-вуги, WCS, реггетон и т.д.)</div>
+                        </div>
+                        <div class="teacher-reason-card">
+                            <img src="massage.jpg" alt="Изучение телесности за пределами танцев" class="reason-image" loading="lazy">
+                            <div class="reason-number">3.</div>
+                            <div class="reason-text">Изучаю телесность и за пределами танцев</div>
+                        </div>
+                    </div>
+                </div>
+                <div style="text-align: center; margin-top: 40px;">
+                    <button class="cta-button" onclick="scrollToContactForm()" aria-label="Записаться на пробное занятие">Записаться на пробное занятие</button>
                 </div>
             </section>
 
             <!-- Dance Styles Section -->
             <section class="dance-section" id="styles">
-                <h2>Наши танцевальные стили</h2>
+                <h2>Танцевальные стили для изучения:</h2>
                 <div class="styles-grid">
                     <div class="style-card">
                         <h3>Бачата</h3>
@@ -813,7 +1192,7 @@
                     </div>
                 </div>
                 <div style="text-align: center; margin-top: 40px;">
-                    <button class="cta-button" onclick="document.getElementById('contacts').scrollIntoView({behavior: 'smooth'})" aria-label="Выбрать стиль">Выбрать стиль</button>
+                    <button class="cta-button" onclick="scrollToContactForm()" aria-label="Выбрать стиль">Выбрать стиль</button>
                 </div>
             </section>
 
@@ -866,7 +1245,7 @@
                     </div>
                 </div>
                 <div style="text-align: center; margin-top: 40px;">
-                    <button class="cta-button" onclick="document.getElementById('contacts').scrollIntoView({behavior: 'smooth'})" aria-label="Записаться на пробное занятие за 1900 рублей">Записаться на пробное занятие - 1900₽ (постоплата)</button>
+                    <button class="cta-button" onclick="scrollToContactForm()" aria-label="Записаться на пробное занятие за 1900 рублей">Записаться на пробное занятие - 1900₽ (постоплата)</button>
                 </div>
             </section>
 
@@ -916,7 +1295,7 @@
                     </div>
                 </div>
                 <div style="text-align: center; margin-top: 40px;">
-                    <button class="cta-button" onclick="document.getElementById('contacts').scrollIntoView({behavior: 'smooth'})" aria-label="Записаться на пробное занятие за 1900 рублей">Записаться на пробное занятие - 1900₽ (постоплата)</button>
+                    <button class="cta-button" onclick="scrollToContactForm()" aria-label="Записаться на пробное занятие за 1900 рублей">Записаться на пробное занятие - 1900₽ (постоплата)</button>
                 </div>
             </section>
 
@@ -941,7 +1320,7 @@
                     </div>
                 </div>
                 <div style="text-align: center; margin-top: 40px;">
-                    <button class="cta-button" onclick="document.getElementById('contacts').scrollIntoView({behavior: 'smooth'})" aria-label="Присоединиться">Присоединиться</button>
+                    <button class="cta-button" onclick="scrollToContactForm()" aria-label="Присоединиться">Присоединиться</button>
                 </div>
             </section>
 
@@ -1038,6 +1417,34 @@
     <script src="config.js"></script>
     
     <script>
+        // Универсальная функция для прокрутки к форме записи
+        function scrollToContactForm() {
+            const contactsSection = document.getElementById('contacts');
+            if (!contactsSection) {
+                console.error('Элемент с id="contacts" не найден');
+                return;
+            }
+            
+            // Вычисляем позицию с учетом отступа для фиксированного хедера
+            const offset = 120; // Отступ сверху для фиксированного хедера
+            const elementPosition = contactsSection.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - offset;
+            
+            // Используем window.scrollTo для более надежной работы
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+            });
+            
+            // Дополнительно фокусируемся на форме для доступности
+            setTimeout(() => {
+                const formInput = document.getElementById('name');
+                if (formInput) {
+                    formInput.focus();
+                }
+            }, 500);
+        }
+        
         // Инициализация EmailJS
         (function() {
             emailjs.init(window.EMAIL_CONFIG?.PUBLIC_KEY || '');
@@ -1231,6 +1638,119 @@
             } finally {
                 submitBtn.disabled = false;
             }
+        });
+        
+        // Image Modal/Lightbox functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const reasonImages = document.querySelectorAll('.teacher-reason-card .reason-image');
+            const aboutMeImage = document.querySelector('.about-me-image');
+            const modal = document.createElement('div');
+            modal.className = 'image-modal';
+            modal.innerHTML = `
+                <span class="image-modal-close">&times;</span>
+                <img class="image-modal-content" src="" alt="">
+            `;
+            document.body.appendChild(modal);
+            
+            const modalImg = modal.querySelector('.image-modal-content');
+            const closeBtn = modal.querySelector('.image-modal-close');
+            
+            // Function to open modal
+            function openModal(img) {
+                // Устанавливаем источник изображения
+                modalImg.src = img.src;
+                modalImg.alt = img.alt || 'Увеличенное изображение';
+                
+                // Принудительно убираем grayscale фильтр для монохромной темы ДО открытия
+                if (document.documentElement.getAttribute('data-theme') === 'monochrome') {
+                    // Временно убираем фильтр с body
+                    document.body.style.filter = 'none';
+                    document.body.style.setProperty('filter', 'none', 'important');
+                    
+                    // Убираем фильтр с модального окна и всех его элементов
+                    modal.style.filter = 'none';
+                    modal.style.setProperty('filter', 'none', 'important');
+                    
+                    // Убираем фильтр с изображения
+                    modalImg.style.filter = 'none';
+                    modalImg.style.setProperty('filter', 'none', 'important');
+                    modalImg.style.opacity = '1';
+                    modalImg.style.visibility = 'visible';
+                    
+                    // Убираем фильтр с кнопки закрытия
+                    if (closeBtn) {
+                        closeBtn.style.filter = 'none';
+                        closeBtn.style.setProperty('filter', 'none', 'important');
+                    }
+                    
+                    // Убираем фильтр со всех дочерних элементов
+                    const allChildren = modal.querySelectorAll('*');
+                    allChildren.forEach(child => {
+                        child.style.filter = 'none';
+                        child.style.setProperty('filter', 'none', 'important');
+                    });
+                }
+                
+                // Открываем модальное окно
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden'; // Prevent scrolling
+                
+                // Проверяем загрузку изображения
+                modalImg.onload = function() {
+                    this.style.opacity = '1';
+                    this.style.visibility = 'visible';
+                };
+                
+                modalImg.onerror = function() {
+                    console.error('Ошибка загрузки изображения:', this.src);
+                    this.style.display = 'none';
+                };
+            }
+            
+            // Function to close modal
+            function closeModal() {
+                modal.classList.remove('active');
+                document.body.style.overflow = ''; // Restore scrolling
+                
+                // Восстанавливаем фильтр для монохромной темы
+                if (document.documentElement.getAttribute('data-theme') === 'monochrome') {
+                    document.body.style.filter = '';
+                    document.body.style.removeProperty('filter');
+                }
+            }
+            
+            // Open modal on image click
+            reasonImages.forEach(img => {
+                img.addEventListener('click', function() {
+                    openModal(this);
+                });
+            });
+            
+            // Open modal on about me image click
+            if (aboutMeImage) {
+                aboutMeImage.addEventListener('click', function() {
+                    openModal(this);
+                });
+            }
+            
+            // Close modal on close button click
+            closeBtn.addEventListener('click', function() {
+                closeModal();
+            });
+            
+            // Close modal on background click
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    closeModal();
+                }
+            });
+            
+            // Close modal on Escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && modal.classList.contains('active')) {
+                    closeModal();
+                }
+            });
         });
     </script>
 </body>

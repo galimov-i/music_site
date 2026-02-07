@@ -88,6 +88,12 @@
     filter: none !important;
 }
 
+/* Исключение для модального окна изображений из grayscale фильтра */
+[data-theme="monochrome"] .image-modal,
+[data-theme="monochrome"] .image-modal * {
+    filter: none !important;
+}
+
 /* ============================================
    СТИЛИ ДЛЯ ГЛАВНОЙ СТРАНИЦЫ
    ============================================ */

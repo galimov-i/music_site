@@ -1,0 +1,373 @@
+/**
+ * Тема "Trainer" - зеленая тема (зеленый, черный, белый)
+ * Применяется ко всему сайту
+ */
+
+/* ============================================
+   CSS ПЕРЕМЕННЫЕ ДЛЯ ТЕМЫ TRAINER
+   ============================================ */
+
+[data-theme="trainer"] {
+    --primary-color: #00aa00;
+    --secondary-color: #00aa00;
+    --accent-color: #00aa00;
+    --text-color: #000000;
+    --bg-color: #ffffff;
+    --secondary-bg: #ffffff;
+    --border-color: #000000;
+    --hover-color: #00aa00;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    --shadow-hover: 0 0 20px rgba(0, 170, 0, 0.6), 0 0 40px rgba(0, 170, 0, 0.3);
+    --neon-glow: 0 0 10px rgba(0, 170, 0, 0.6), 0 0 20px rgba(0, 170, 0, 0.3);
+}
+
+/* ============================================
+   СТИЛИ ДЛЯ BODY
+   ============================================ */
+
+[data-theme="trainer"] body {
+    background: #ffffff !important;
+    background-image: none !important;
+}
+
+[data-theme="trainer"] body::before {
+    background: none !important;
+}
+
+/* ============================================
+   ОСНОВНЫЕ ЭЛЕМЕНТЫ
+   ============================================ */
+
+[data-theme="trainer"] .header {
+    background: #ffffff;
+    border-bottom: 2px solid #000000;
+}
+
+[data-theme="trainer"] .footer {
+    background: #ffffff;
+    border-top: 2px solid #00aa00;
+}
+
+[data-theme="trainer"] .footer p {
+    color: #000000;
+}
+
+/* ============================================
+   ТЕКСТ И ЗАГОЛОВКИ
+   ============================================ */
+
+[data-theme="trainer"] h1,
+[data-theme="trainer"] h2,
+[data-theme="trainer"] h3 {
+    color: #00aa00;
+}
+
+[data-theme="trainer"] p {
+    color: #000000;
+}
+
+[data-theme="trainer"] .breadcrumbs {
+    color: #000000;
+}
+
+[data-theme="trainer"] .breadcrumbs a {
+    color: #00aa00;
+}
+
+[data-theme="trainer"] .breadcrumbs a:hover {
+    color: #000000;
+    background: #00aa00;
+}
+
+/* ============================================
+   КНОПКИ
+   ============================================ */
+
+[data-theme="trainer"] .cta-button,
+[data-theme="trainer"] button[type="submit"],
+[data-theme="trainer"] .form-submit-btn {
+    background: #00aa00;
+    color: #000000;
+    border: 2px solid #000000;
+    font-weight: bold;
+}
+
+[data-theme="trainer"] .cta-button:hover,
+[data-theme="trainer"] button[type="submit"]:hover,
+[data-theme="trainer"] .form-submit-btn:hover {
+    background: #ffffff;
+    color: #00aa00;
+    box-shadow: 0 0 20px rgba(0, 170, 0, 0.6);
+}
+
+[data-theme="trainer"] .contact-btn-phone {
+    background: #00aa00;
+    color: #000000;
+    border: 2px solid #000000;
+    font-weight: bold;
+}
+
+[data-theme="trainer"] .contact-btn-phone:hover {
+    background: #ffffff;
+    color: #00aa00;
+    box-shadow: 0 0 20px rgba(0, 170, 0, 0.6);
+}
+
+[data-theme="trainer"] .contact-btn-telegram {
+    background: #ffffff;
+    color: #00aa00;
+    border: 2px solid #00aa00;
+    font-weight: bold;
+}
+
+[data-theme="trainer"] .contact-btn-telegram:hover {
+    background: #00aa00;
+    color: #000000;
+    box-shadow: 0 0 20px rgba(0, 170, 0, 0.6);
+}
+
+[data-theme="trainer"] .theme-toggle {
+    background: #ffffff;
+    border: 2px solid #00aa00;
+    color: #00aa00;
+}
+
+[data-theme="trainer"] .theme-toggle:hover {
+    background: #00aa00;
+    color: #000000;
+    box-shadow: 0 0 15px rgba(0, 170, 0, 0.6);
+}
+
+/* ============================================
+   ФОРМЫ
+   ============================================ */
+
+[data-theme="trainer"] input,
+[data-theme="trainer"] textarea,
+[data-theme="trainer"] select {
+    background: #ffffff;
+    border: 2px solid #000000;
+    color: #000000;
+}
+
+[data-theme="trainer"] input:focus,
+[data-theme="trainer"] textarea:focus,
+[data-theme="trainer"] select:focus {
+    border-color: #00aa00;
+    box-shadow: 0 0 0 3px rgba(0, 170, 0, 0.2), 0 0 10px rgba(0, 170, 0, 0.4);
+    outline: none;
+}
+
+[data-theme="trainer"] label {
+    color: #000000;
+}
+
+[data-theme="trainer"] .form-success {
+    background: #00aa00;
+    border: 2px solid #000000;
+    color: #000000;
+}
+
+[data-theme="trainer"] .form-loading {
+    color: #00aa00;
+}
+
+[data-theme="trainer"] .spinner {
+    border-color: #000000;
+    border-top-color: #00aa00;
+}
+
+/* ============================================
+   КАРТОЧКИ И БЛОКИ
+   ============================================ */
+
+[data-theme="trainer"] .album-card,
+[data-theme="trainer"] .style-card,
+[data-theme="trainer"] .pricing-card,
+[data-theme="trainer"] .testimonial-card,
+[data-theme="trainer"] .contact-form,
+[data-theme="trainer"] .reasons-block,
+[data-theme="trainer"] .teacher-reasons-block,
+[data-theme="trainer"] .about-me-block {
+    background: #ffffff;
+    border: 2px solid #000000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+[data-theme="trainer"] .pricing-card .price {
+    color: #00aa00;
+}
+
+[data-theme="trainer"] .pricing-card ul li {
+    color: #000000;
+}
+
+[data-theme="trainer"] .pricing-card ul li::before {
+    color: #00aa00;
+}
+
+[data-theme="trainer"] .testimonial-card .testimonial-author {
+    color: #00aa00;
+}
+
+/* ============================================
+   ИЗОБРАЖЕНИЯ И МЕДИА
+   ============================================ */
+
+[data-theme="trainer"] img,
+[data-theme="trainer"] svg:not(.theme-icon):not(.theme-icon *) {
+    filter: none;
+}
+
+[data-theme="trainer"] .image-modal {
+    background: rgba(255, 255, 255, 0.95);
+}
+
+[data-theme="trainer"] .image-modal-content {
+    border: 3px solid #00aa00;
+    box-shadow: 0 0 30px rgba(0, 170, 0, 0.6);
+}
+
+[data-theme="trainer"] .image-modal-close {
+    color: #00aa00;
+    background: #ffffff;
+    border: 2px solid #00aa00;
+}
+
+[data-theme="trainer"] .image-modal-close:hover {
+    background: #00aa00;
+    color: #000000;
+}
+
+[data-theme="trainer"] .testimonial-audio audio {
+    filter: none;
+}
+
+[data-theme="trainer"] .testimonial-audio audio::-webkit-media-controls-panel {
+    background-color: #ffffff !important;
+}
+
+[data-theme="trainer"] .testimonial-audio audio::-webkit-media-controls-enclosure {
+    background-color: #ffffff !important;
+}
+
+[data-theme="trainer"] .testimonial-audio audio::-webkit-media-controls-play-button,
+[data-theme="trainer"] .testimonial-audio audio::-webkit-media-controls-pause-button,
+[data-theme="trainer"] .testimonial-audio audio::-webkit-media-controls-mute-button {
+    background-color: #00aa00 !important;
+    color: #000000 !important;
+}
+
+[data-theme="trainer"] .testimonial-audio audio::-webkit-media-controls-current-time-display,
+[data-theme="trainer"] .testimonial-audio audio::-webkit-media-controls-time-remaining-display {
+    color: #00aa00 !important;
+}
+
+/* ============================================
+   СПЕЦИФИЧНЫЕ СТИЛИ ДЛЯ СТРАНИЦЫ DANCE
+   ============================================ */
+
+[data-theme="trainer"] .dance-hero {
+    background: #ffffff;
+    border: 2px solid #000000;
+}
+
+[data-theme="trainer"] .dance-hero h1 {
+    color: #00aa00;
+}
+
+[data-theme="trainer"] .dance-section {
+    background: transparent;
+}
+
+[data-theme="trainer"] .dance-section h2 {
+    color: #ffffff;
+}
+
+[data-theme="trainer"] .dance-hero strong,
+[data-theme="trainer"] .footer strong,
+[data-theme="trainer"] .dance-hero p strong,
+[data-theme="trainer"] .footer p strong,
+[data-theme="trainer"] strong[style*="color: var(--primary-color)"] {
+    color: #ffffff !important;
+}
+
+[data-theme="trainer"] .dance-hero span[style*="color: var(--accent-color)"],
+[data-theme="trainer"] .footer span[style*="color: var(--accent-color)"],
+[data-theme="trainer"] .dance-hero p span,
+[data-theme="trainer"] .footer p span {
+    color: #ffffff !important;
+}
+
+/* Весь блок "Связаться напрямую" - белый цвет */
+[data-theme="trainer"] .dance-hero p[style*="font-size: 1.1rem"],
+[data-theme="trainer"] .footer p[style*="font-size: 1.1rem"],
+[data-theme="trainer"] .dance-hero p[style*="font-size: 1.1rem"] *,
+[data-theme="trainer"] .footer p[style*="font-size: 1.1rem"] *,
+[data-theme="trainer"] .dance-hero p[style*="font-size: 1.1rem"] strong,
+[data-theme="trainer"] .footer p[style*="font-size: 1.1rem"] strong,
+[data-theme="trainer"] .dance-hero p[style*="font-size: 1.1rem"] span,
+[data-theme="trainer"] .footer p[style*="font-size: 1.1rem"] span,
+[data-theme="trainer"] span[style*="color: var(--accent-color)"],
+[data-theme="trainer"] span[style*="font-size: 1.3rem"],
+[data-theme="trainer"] .dance-hero span[style*="1.3rem"],
+[data-theme="trainer"] .footer span[style*="1.3rem"] {
+    color: #ffffff !important;
+    opacity: 1 !important;
+}
+
+[data-theme="trainer"] .video-section {
+    border: 2px solid #000000;
+    background: #ffffff;
+}
+
+[data-theme="trainer"] .video-section h2 {
+    color: #00aa00;
+}
+
+[data-theme="trainer"] .video-section p {
+    color: #000000;
+}
+
+[data-theme="trainer"] .about-me-block h2,
+[data-theme="trainer"] .reasons-block h2,
+[data-theme="trainer"] .teacher-reasons-block h2 {
+    color: #00aa00;
+}
+
+[data-theme="trainer"] .about-me-block p,
+[data-theme="trainer"] .reasons-block p,
+[data-theme="trainer"] .teacher-reasons-block p {
+    color: #000000;
+}
+
+[data-theme="trainer"] .contact-section h2 {
+    color: #00aa00;
+}
+
+[data-theme="trainer"] .contact-section p {
+    color: #000000;
+}
+
+[data-theme="trainer"] .contact-direct h3 {
+    color: #00aa00;
+}
+
+[data-theme="trainer"] .contact-direct p {
+    color: #000000;
+}
+
+/* ============================================
+   СТИЛИ ДЛЯ СТРАНИЦ АЛЬБОМОВ
+   ============================================ */
+
+/* Информация об альбоме (год, треки, формат) */
+[data-theme="trainer"] .info-item .info-value,
+[data-theme="trainer"] .info-item .info-label {
+    color: #ffffff !important;
+}
+
+/* Заголовки секций на страницах альбомов */
+[data-theme="trainer"] .section-title {
+    color: #ffffff !important;
+}

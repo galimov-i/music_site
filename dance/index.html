@@ -1269,19 +1269,25 @@
             color: #ffffff !important;
         }
         
-        /* Весь блок "Связаться напрямую" - белый цвет */
+        /* Блок "Связаться напрямую" в hero - черный цвет */
         [data-theme="trainer"] .dance-hero p[style*="font-size: 1.1rem"],
-        [data-theme="trainer"] .footer p[style*="font-size: 1.1rem"],
         [data-theme="trainer"] .dance-hero p[style*="font-size: 1.1rem"] *,
-        [data-theme="trainer"] .footer p[style*="font-size: 1.1rem"] *,
         [data-theme="trainer"] .dance-hero p[style*="font-size: 1.1rem"] strong,
-        [data-theme="trainer"] .footer p[style*="font-size: 1.1rem"] strong,
         [data-theme="trainer"] .dance-hero p[style*="font-size: 1.1rem"] span,
-        [data-theme="trainer"] .footer p[style*="font-size: 1.1rem"] span,
-        [data-theme="trainer"] span[style*="color: var(--accent-color)"],
-        [data-theme="trainer"] span[style*="font-size: 1.3rem"],
         [data-theme="trainer"] .dance-hero span[style*="1.3rem"],
-        [data-theme="trainer"] .footer span[style*="1.3rem"] {
+        [data-theme="trainer"] .dance-hero span[style*="color: var(--accent-color)"],
+        [data-theme="trainer"] .dance-hero p span[style*="font-size: 1.3rem"] {
+            color: #000000 !important;
+            opacity: 1 !important;
+        }
+        
+        /* Блок "Связаться напрямую" в footer - белый цвет */
+        [data-theme="trainer"] .footer p[style*="font-size: 1.1rem"],
+        [data-theme="trainer"] .footer p[style*="font-size: 1.1rem"] *,
+        [data-theme="trainer"] .footer p[style*="font-size: 1.1rem"] strong,
+        [data-theme="trainer"] .footer p[style*="font-size: 1.1rem"] span,
+        [data-theme="trainer"] .footer span[style*="1.3rem"],
+        [data-theme="trainer"] .footer span[style*="color: var(--accent-color)"] {
             color: #ffffff !important;
             opacity: 1 !important;
         }
@@ -1873,8 +1879,19 @@
             if (currentTheme === 'trainer') {
                 phoneSpans.forEach(span => {
                     if (span.textContent.includes('+7-937-299-7666')) {
-                        span.style.color = '#ffffff !important';
-                        span.style.setProperty('color', '#ffffff', 'important');
+                        // Проверяем, находится ли номер в hero секции или в footer
+                        const isInHero = span.closest('.dance-hero');
+                        const isInFooter = span.closest('.footer');
+                        
+                        if (isInHero) {
+                            // В hero - черный цвет
+                            span.style.color = '#000000';
+                            span.style.setProperty('color', '#000000', 'important');
+                        } else if (isInFooter) {
+                            // В footer - белый цвет
+                            span.style.color = '#ffffff';
+                            span.style.setProperty('color', '#ffffff', 'important');
+                        }
                     }
                 });
             }

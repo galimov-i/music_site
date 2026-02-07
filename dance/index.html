@@ -100,7 +100,8 @@
             border-radius: 20px;
             padding: 40px;
             margin: 60px auto;
-            max-width: 900px;
+            max-width: 1200px;
+            width: 100%;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -344,6 +345,13 @@
             width: 100%;
             height: 40px;
             outline: none;
+            -webkit-appearance: none;
+            appearance: none;
+        }
+        
+        .testimonial-audio audio::-webkit-media-controls-enclosure {
+            background-color: var(--secondary-bg);
+            border-radius: 5px;
         }
         
         .testimonial-audio audio::-webkit-media-controls-panel {
@@ -467,7 +475,8 @@
             border-radius: 20px;
             padding: 40px;
             margin: 40px 0;
-            max-width: 800px;
+            max-width: 1200px;
+            width: 100%;
             margin-left: auto;
             margin-right: auto;
         }
@@ -530,7 +539,8 @@
             border-radius: 20px;
             padding: 40px;
             margin: 60px 0;
-            max-width: 1000px;
+            max-width: 1200px;
+            width: 100%;
             margin-left: auto;
             margin-right: auto;
         }
@@ -816,11 +826,17 @@
             .reasons-block {
                 padding: 25px 20px;
                 margin: 30px 15px;
+                max-width: 100%;
             }
             
             .teacher-reasons-block {
                 padding: 25px 20px;
                 margin: 30px 15px;
+                max-width: 100%;
+            }
+            
+            .about-me-block {
+                max-width: 100%;
             }
             
             .teacher-reasons-block h3 {
@@ -1172,6 +1188,29 @@
                 </p>
                 <button class="cta-button" onclick="scrollToContactForm()" aria-label="Записаться на пробное индивидуальное занятие за 1900 рублей">Пробное индивидуальное занятие - 1900₽ (постоплата)</button>
                 
+                <div style="text-align: center; margin-top: 40px;">
+                    <p style="color: var(--text-color); opacity: 0.9; margin-bottom: 20px; font-size: 1.1rem;">
+                        <strong style="color: var(--primary-color);">Связаться напрямую:</strong><br>
+                        <span style="font-size: 1.3rem; color: var(--accent-color);">+7-937-299-7666</span><br>
+                        <span style="font-size: 0.9rem; opacity: 0.8;">WhatsApp, Telegram, Звонок</span>
+                    </p>
+                    
+                    <div class="contact-buttons">
+                        <a href="tel:+79372997666" class="contact-btn contact-btn-phone" aria-label="Позвонить">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                            </svg>
+                            Позвонить
+                        </a>
+                        <a href="https://t.me/ilshator" target="_blank" rel="noopener noreferrer" class="contact-btn contact-btn-telegram" aria-label="Написать в Telegram">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.13-.31-1.09-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/>
+                            </svg>
+                            Telegram
+                        </a>
+                    </div>
+                </div>
+                
                 <div class="reasons-block">
                     <h3>4 причины записаться:</h3>
                     <ul class="reasons-list">
@@ -1347,12 +1386,12 @@
                         <p class="author">Анна, Мастер Спорта по плаванию • Сальса, Кизомба</p>
                         <div class="testimonial-audio">
                             <span class="testimonial-audio-label">🎵 Аудиоотзыв:</span>
-                            <audio id="feedback-audio" controls preload="metadata" aria-label="Аудиоотзыв от Анны, Мастера Спорта по плаванию">
-                                <source src="feedback" type="audio/mpeg">
+                            <audio id="feedback-audio" controls preload="metadata" playsinline webkit-playsinline aria-label="Аудиоотзыв от Анны, Мастера Спорта по плаванию">
                                 <source src="feedback.mp3" type="audio/mpeg">
                                 <source src="feedback.wav" type="audio/wav">
                                 <source src="feedback.m4a" type="audio/mp4">
                                 <source src="feedback.ogg" type="audio/ogg">
+                                <source src="feedback" type="audio/mpeg">
                                 Ваш браузер не поддерживает воспроизведение аудио.
                             </audio>
                         </div>
@@ -1810,6 +1849,12 @@
         document.addEventListener('DOMContentLoaded', function() {
             const feedbackAudio = document.getElementById('feedback-audio');
             if (feedbackAudio) {
+                // Для мобильных устройств устанавливаем атрибуты
+                if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+                    feedbackAudio.setAttribute('playsinline', '');
+                    feedbackAudio.setAttribute('webkit-playsinline', '');
+                }
+                
                 // Список возможных форматов файла в порядке приоритета
                 const audioFormats = [
                     { src: 'feedback.mp3', type: 'audio/mpeg' },
@@ -1820,25 +1865,45 @@
                 ];
                 
                 let currentIndex = 0;
+                let audioLoaded = false;
                 
                 // Функция для проверки доступности файла
                 function checkAudioFile(index) {
-                    if (index >= audioFormats.length) {
-                        console.warn('Не удалось найти аудио-файл feedback');
+                    if (audioLoaded || index >= audioFormats.length) {
+                        if (!audioLoaded && index >= audioFormats.length) {
+                            console.warn('Не удалось найти аудио-файл feedback');
+                        }
                         return;
                     }
                     
                     const format = audioFormats[index];
                     const testAudio = new Audio();
                     
+                    // Для мобильных устройств
+                    if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+                        testAudio.setAttribute('playsinline', '');
+                        testAudio.setAttribute('webkit-playsinline', '');
+                    }
+                    
                     testAudio.addEventListener('canplay', function() {
-                        // Файл найден, используем его
-                        feedbackAudio.innerHTML = '';
-                        const source = document.createElement('source');
-                        source.src = format.src;
-                        source.type = format.type;
-                        feedbackAudio.appendChild(source);
-                        feedbackAudio.load();
+                        if (!audioLoaded) {
+                            audioLoaded = true;
+                            // Файл найден, используем его
+                            feedbackAudio.innerHTML = '';
+                            const source = document.createElement('source');
+                            source.src = format.src;
+                            source.type = format.type;
+                            feedbackAudio.appendChild(source);
+                            feedbackAudio.load();
+                            
+                            // Принудительно загружаем на мобильных
+                            if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+                                feedbackAudio.load();
+                                setTimeout(() => {
+                                    feedbackAudio.load();
+                                }, 100);
+                            }
+                        }
                     });
                     
                     testAudio.addEventListener('error', function() {
@@ -1853,6 +1918,15 @@
                 
                 // Начинаем проверку с первого формата
                 checkAudioFile(0);
+                
+                // Дополнительная попытка загрузки для мобильных устройств
+                if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+                    setTimeout(() => {
+                        if (!audioLoaded) {
+                            feedbackAudio.load();
+                        }
+                    }, 500);
+                }
             }
         });
     </script>

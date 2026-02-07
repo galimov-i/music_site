@@ -18,7 +18,11 @@
         const html = document.documentElement;
         
         // Применяем сохраненную тему или темную по умолчанию
-        const themeToApply = savedTheme || 'dark';
+        // Если сохранена тема trainer, но иконки нет (страница альбома), используем dark
+        let themeToApply = savedTheme || 'dark';
+        if (themeToApply === 'trainer' && !trainerIcon) {
+            themeToApply = 'dark';
+        }
         html.setAttribute('data-theme', themeToApply);
         updateIcons(themeToApply, sunIcon, moonIcon, monochromeIcon, trainerIcon);
         
@@ -28,13 +32,15 @@
                 const currentTheme = html.getAttribute('data-theme') || 'dark';
                 let newTheme;
                 
-                // Циклическое переключение: dark -> light -> monochrome -> trainer -> dark
+                // Циклическое переключение: dark -> light -> monochrome -> trainer (если есть) -> dark
+                // Если иконка trainer отсутствует, переключаем только между 3 темами
                 if (currentTheme === 'dark') {
                     newTheme = 'light';
                 } else if (currentTheme === 'light') {
                     newTheme = 'monochrome';
                 } else if (currentTheme === 'monochrome') {
-                    newTheme = 'trainer';
+                    // Переключаемся на trainer только если иконка существует
+                    newTheme = trainerIcon ? 'trainer' : 'dark';
                 } else {
                     newTheme = 'dark';
                 }

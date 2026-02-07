@@ -315,6 +315,54 @@
             font-weight: bold;
         }
         
+        /* Изображение в карточке отзыва */
+        .testimonial-image {
+            width: 100%;
+            max-width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .testimonial-image:hover {
+            transform: scale(1.02);
+            box-shadow: 0 8px 25px rgba(0, 245, 255, 0.3);
+        }
+        
+        /* Аудио-плеер для отзывов */
+        .testimonial-audio {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+        
+        .testimonial-audio audio {
+            width: 100%;
+            height: 40px;
+            outline: none;
+        }
+        
+        .testimonial-audio audio::-webkit-media-controls-panel {
+            background-color: var(--secondary-bg);
+        }
+        
+        .testimonial-audio audio::-webkit-media-controls-play-button {
+            background-color: var(--primary-color);
+            border-radius: 50%;
+        }
+        
+        .testimonial-audio-label {
+            font-size: 0.9rem;
+            color: var(--text-color);
+            opacity: 0.7;
+            margin-bottom: 10px;
+            display: block;
+        }
+        
         .contact-form {
             background: var(--secondary-bg);
             backdrop-filter: blur(10px);
@@ -831,6 +879,11 @@
                 padding: 20px;
             }
             
+            .testimonial-image {
+                height: 180px;
+                margin-bottom: 12px;
+            }
+            
             .video-wrapper {
                 padding: 20px 15px;
             }
@@ -871,6 +924,15 @@
             .testimonials-grid {
                 grid-template-columns: 1fr;
                 gap: 20px;
+            }
+            
+            .testimonial-audio {
+                margin-top: 15px;
+                padding-top: 15px;
+            }
+            
+            .testimonial-audio audio {
+                height: 35px;
             }
             
             /* Улучшение отступов в списках */
@@ -1270,53 +1332,36 @@
                 </div>
             </section>
 
-            <!-- About Section -->
-            <section class="dance-section" id="about">
-                <div style="max-width: 800px; margin: 0 auto; text-align: center;">
-                    <h3 style="color: var(--primary-color); margin: 40px 0 20px; font-size: 1.8rem;">Почему мы работаем только индивидуально?</h3>
-                    <div style="text-align: left; max-width: 700px; margin: 0 auto;">
-                        <p style="color: var(--text-color); opacity: 0.9; line-height: 1.8; margin-bottom: 20px;">
-                            Групповые занятия часто заставляют учеников чувствовать себя некомфортно, особенно новичков. Индивидуальный формат позволяет:
-                        </p>
-                        <ul style="list-style: none; padding: 0;">
-                            <li style="padding: 15px 0; border-bottom: 1px solid var(--border-color);">
-                                <strong style="color: var(--accent-color);">Максимально персонализировать программу</strong><br>
-                                <span style="color: var(--text-color); opacity: 0.8;">Учитываем физические особенности, темперамент и цели каждого ученика</span>
-                            </li>
-                            <li style="padding: 15px 0; border-bottom: 1px solid var(--border-color);">
-                                <strong style="color: var(--accent-color);">Давать обратную связь в реальном времени</strong><br>
-                                <span style="color: var(--text-color); opacity: 0.8;">Корректируем движения сразу, а не после того как привычки закрепятся</span>
-                            </li>
-                            <li style="padding: 15px 0;">
-                                <strong style="color: var(--accent-color);">Создавать безопасную атмосферу</strong><br>
-                                <span style="color: var(--text-color); opacity: 0.8;">Новички часто стесняются своих движений в группе, индивидуальные занятия снимают этот стресс</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div style="text-align: center; margin-top: 40px;">
-                    <button class="cta-button" onclick="scrollToContactForm()" aria-label="Записаться на пробное занятие за 1900 рублей">Записаться на пробное занятие - 1900₽ (постоплата)</button>
-                </div>
-            </section>
-
             <!-- Testimonials Section -->
             <section class="dance-section" id="testimonials">
                 <h2>Истории наших учеников</h2>
                 <div class="testimonials-grid">
                     <div class="testimonial-card">
                         <div class="rating">★★★★★</div>
+                        <img src="party.jpg" alt="Скриншот отзыва" class="testimonial-image" loading="lazy">
                         <p class="text">"За месяц я освоила базовые шаги бачаты и пошла на первую вечеринку. Поразительно!"</p>
-                        <p class="author">Екатерина, 29 лет • Бачата</p>
+                        <p class="author">Александра, организатор фотовыставок • Бачата</p>
                     </div>
                     <div class="testimonial-card">
                         <div class="rating">★★★★★</div>
-                        <p class="text">"Не думал, что танцевать - это так просто. Никогда не занимался танцами, решил изменить свою жизнь и жизнь действительно стала ярче"</p>
-                        <p class="author">Алексей, 34 года • Сальса Касино</p>
+                        <p class="author">Анна, Мастер Спорта по плаванию • Сальса, Кизомба</p>
+                        <div class="testimonial-audio">
+                            <span class="testimonial-audio-label">🎵 Аудиоотзыв:</span>
+                            <audio id="feedback-audio" controls preload="metadata" aria-label="Аудиоотзыв от Анны, Мастера Спорта по плаванию">
+                                <source src="feedback" type="audio/mpeg">
+                                <source src="feedback.mp3" type="audio/mpeg">
+                                <source src="feedback.wav" type="audio/wav">
+                                <source src="feedback.m4a" type="audio/mp4">
+                                <source src="feedback.ogg" type="audio/ogg">
+                                Ваш браузер не поддерживает воспроизведение аудио.
+                            </audio>
+                        </div>
                     </div>
                     <div class="testimonial-card">
                         <div class="rating">★★★★★</div>
-                        <p class="text">"Выбрала пакет из 24 занятий по всем трем стилям. Если танцы - это язык, то я теперь полиглот. Чтобы "свободно разговаривать" ушло всего 3 месяца.</p>
-                        <p class="author">Мария, 36 лет • Кизомба + Сальса + Бачата</p>
+                        <img src="cute.jpg" alt="Скриншот отзыва" class="testimonial-image" loading="lazy">
+                        <p class="text">"Занимался бачатой и сальсой больше года. Но на уроке открыл для себя новый уровень взаимодействия, теперь партнерши радуются, когда меня видят и сами за мной бегают"</p>
+                        <p class="author">Андрей, IT-специалист • Бачата</p>
                     </div>
                 </div>
                 <div style="text-align: center; margin-top: 40px;">
@@ -1644,6 +1689,7 @@
         document.addEventListener('DOMContentLoaded', function() {
             const reasonImages = document.querySelectorAll('.teacher-reason-card .reason-image');
             const aboutMeImage = document.querySelector('.about-me-image');
+            const testimonialImages = document.querySelectorAll('.testimonial-image');
             const modal = document.createElement('div');
             modal.className = 'image-modal';
             modal.innerHTML = `
@@ -1733,6 +1779,13 @@
                 });
             }
             
+            // Open modal on testimonial images click
+            testimonialImages.forEach(img => {
+                img.addEventListener('click', function() {
+                    openModal(this);
+                });
+            });
+            
             // Close modal on close button click
             closeBtn.addEventListener('click', function() {
                 closeModal();
@@ -1751,6 +1804,56 @@
                     closeModal();
                 }
             });
+        });
+        
+        // Обработка аудио-отзыва - попытка загрузки файла с разными расширениями
+        document.addEventListener('DOMContentLoaded', function() {
+            const feedbackAudio = document.getElementById('feedback-audio');
+            if (feedbackAudio) {
+                // Список возможных форматов файла в порядке приоритета
+                const audioFormats = [
+                    { src: 'feedback.mp3', type: 'audio/mpeg' },
+                    { src: 'feedback.wav', type: 'audio/wav' },
+                    { src: 'feedback.m4a', type: 'audio/mp4' },
+                    { src: 'feedback.ogg', type: 'audio/ogg' },
+                    { src: 'feedback', type: 'audio/mpeg' }
+                ];
+                
+                let currentIndex = 0;
+                
+                // Функция для проверки доступности файла
+                function checkAudioFile(index) {
+                    if (index >= audioFormats.length) {
+                        console.warn('Не удалось найти аудио-файл feedback');
+                        return;
+                    }
+                    
+                    const format = audioFormats[index];
+                    const testAudio = new Audio();
+                    
+                    testAudio.addEventListener('canplay', function() {
+                        // Файл найден, используем его
+                        feedbackAudio.innerHTML = '';
+                        const source = document.createElement('source');
+                        source.src = format.src;
+                        source.type = format.type;
+                        feedbackAudio.appendChild(source);
+                        feedbackAudio.load();
+                    });
+                    
+                    testAudio.addEventListener('error', function() {
+                        // Файл не найден, пробуем следующий
+                        checkAudioFile(index + 1);
+                    });
+                    
+                    // Пытаемся загрузить файл
+                    testAudio.src = format.src;
+                    testAudio.load();
+                }
+                
+                // Начинаем проверку с первого формата
+                checkAudioFile(0);
+            }
         });
     </script>
 </body>

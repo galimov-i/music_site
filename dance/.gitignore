@@ -16,6 +16,10 @@
 *.mkv
 *.webm
 
+# Audio feedback files
+feedback
+feedback.*
+
 # Configuration files
 config.js
 .env

@@ -1743,6 +1743,29 @@
             videoObserver.observe(video);
         }
         
+        // Оптимизация загрузки видео в блоках Бачата, Сальса, Кизомба
+        const danceVideos = document.querySelectorAll('.dance-video-item');
+        if (danceVideos.length > 0 && 'IntersectionObserver' in window) {
+            const danceVideoObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const videoEl = entry.target;
+                        // Когда видео видно, меняем preload на metadata для предзагрузки
+                        if (videoEl.getAttribute('preload') === 'none') {
+                            videoEl.setAttribute('preload', 'metadata');
+                        }
+                        danceVideoObserver.unobserve(videoEl);
+                    }
+                });
+            }, {
+                rootMargin: '50px' // Начинаем загрузку за 50px до появления видео
+            });
+            
+            danceVideos.forEach(videoEl => {
+                danceVideoObserver.observe(videoEl);
+            });
+        }
+        
         // Валидация и форматирование номера телефона
         const phoneInput = document.getElementById('phone');
         const phoneError = document.getElementById('phone-error');
